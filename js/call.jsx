@@ -1,14 +1,9 @@
 // Config
 const config = {};
-config.akPage = 'block-trumps-cabinet-www';
-config.callCampaign = 'block-trumps-cabinet';
-config.callCampaignSessions = 'block-trumps-cabinet-stop-sessions';
-config.callCampaignMnuchin = 'block-trumps-cabinet-block-mnuchin';
-config.link = 'https://http://calloutgorsuch.com/';
-config.prettyCampaignName = 'Block Trump\'s Cabinet';
-config.prettyCampaignNameSessions = 'Block Trump\'s Cabinet - Stop Sessions';
-config.prettyCampaignNameMnuchin = 'Block Trump\'s Cabinet - Stop Mnuchin';
-
+config.akPage = 'call-out-gorsuch-www';
+config.callCampaign = 'call-out-gorsuch';
+config.link = 'https://calloutgorsuch.com/';
+config.prettyCampaignName = "Oppose Trump's takeover of Supreme Court";
 
 // Modules
 const React = require('react');
@@ -180,120 +175,10 @@ const Header = () => (
         <div className="title">
             <span className="first-line">Tell the Senate:</span>
             <br/>
-            Block Trump’s Cabinet <span className="single-word">of</span> Hate <span className="single-word">and</span> Wall Street Greed
+            Oppose Trump&#039;s takeover <span className="single-word">of</span> the Supreme Court
         </div>
     </header>
 );
-
-const EmailForm = React.createClass({
-    render: function() {
-        return (
-            <div className="email-form">
-                <div className="petition" id="petition">
-                    <h3>Petition to members of the U.S. Senate:</h3>
-
-                    Donald Trump’s first appointments to cabinet-level roles in his administration are horrifying. Trump’s nominees and rumored picks have promoted white nationalism, attacked climate science, and used their power as Wall Street insiders and corporate lobbyists to fleece working families.
-                    <div className="spacer" />
-
-                    As representatives of all Americans, you must stand up against hatred and greed. Fight to block and resist every Trump nominee who embraces racism, xenophobia, misogyny, homophobia, climate denial, and Wall Street greed.
-
-                    <form onSubmit={ this.onSubmit } ref="form">
-                        <input className="name" name="name" placeholder="Your name" autoFocus="autoFocus" />
-                        <input className="email" name="email" placeholder="Email" type="email" />
-                        <input className="zip" name="zip" placeholder="Zip code" type="tel" />
-                        <button>
-                            Sign the Petition
-                        </button>
-                    </form>
-
-                    <div className="disclaimer">
-                        One or more partner groups
-                        may send you updates on this and other important campaigns by email. If at any time you would like to unsubscribe from any of these email lists, you may do so.
-                    </div>
-
-                    <Counter />
-                </div>
-
-                <BodyCopy />
-
-            </div>
-        );
-    },
-
-    onSubmit: function(e) {
-        e.preventDefault();
-
-        const form = this.refs.form;
-
-        const name = form.querySelector('[name="name"]');
-        if (!name.value.trim()) {
-            name.focus();
-            alert('Please enter your name.');
-            return;
-        }
-
-        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-        const email = form.querySelector('[name="email"]');
-        if (!email.value.trim()) {
-            email.focus();
-            alert('Please enter your email.');
-            return;
-        } else if (!emailRegex.test(email.value.trim())) {
-            email.focus();
-            alert('Please enter a valid email.');
-            return;
-        }
-
-        const zip = form.querySelector('[name="zip"]');
-        if (!zip.value.trim()) {
-            zip.focus();
-            alert('Please enter your zip.');
-            return;
-        }
-
-        try {
-            sessionStorage.zip = zip.value.trim();
-        } catch (err) {
-            // Oh well
-        }
-
-        const fields = {
-            'action_user_agent': navigator.userAgent,
-            'country': 'United States',
-            'email': email.value.trim(),
-            'form_name': 'act-petition',
-            'js': 1,
-            'name': name.value.trim(),
-            // 'opt_in': 1,
-            'page': config.akPage,
-            'source': getSource(),
-            'want_progress': 1,
-            'zip': zip.value.trim(),
-        };
-
-        sendFormToActionKit(fields);
-
-        this.props.changeForm('phone');
-    },
-});
-
-function Counter() {
-    let className = 'counter';
-
-    if (state.count > 0) {
-        className += ' loaded';
-    }
-
-    const signatures = numberWithCommas(state.count);
-
-    return (
-        <div className={className}>
-            <hr />
-            <div className="number-of-signatures">{signatures}</div>
-            <div className="number-of-signatures-label">signatures are in</div>
-        </div>
-    );
-}
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -303,10 +188,13 @@ const PhoneForm = React.createClass({
     render: function() {
         return (
             <div className="phone-form-wrapper">
-                <h2>Thanks for signing. <br/> Now, could you make a call?</h2>
-                <div className="paragraph">
-                    It’s the single most effective thing you can do.
-                </div>
+                <p>Neil Gorsuch is Donald Trump&#039;s Supreme Court nominee -- and he is even more conservative than Antonin Scalia was.
+                Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.</p>
+
+                <p>Gorsuch has a long history of siding with powerful interests over everyday Americans.  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice we simply cannot afford to let the court shift to the far right. </p>
+
+                <h3>The Senate Must Block and Resist Trump&#039;s Supreme Court</h3>
+                <p>The Senate will be voting on Gorsuch soon -- we need you to call your senators now and tell them to vote no.</p>
 
                 <div className="phone-form">
                     <form onSubmit={ this.onSubmit }>
@@ -360,195 +248,6 @@ const PhoneForm = React.createClass({
         request.send();
 
         this.props.changeForm('script');
-    },
-
-    onClickOptOut: function(e) {
-        e.preventDefault();
-
-        this.props.changeForm('opt-out');
-    },
-});
-
-const StopSessionsPhoneForm = React.createClass({
-    render: function() {
-        return (
-            <div className="stop-sessions-wrapper">
-                <div className="phone-form-wrapper stop-sessions">
-                    <div className="paragraph">
-                        <strong>
-                        Hearings on Trump&#039;s appointment of Jeff Sessions to be Attorney General have already begun.
-                        <br />
-                        <br />
-                        Senate Democrats need to get their backbones and block the appointment of this authoritarian, corporatist, racist, and sexist to run our law enforcement apparatus.
-                        </strong>
-                    </div>
-
-                    <div className="phone-form" id="phone-form">
-                        <form onSubmit={ this.onSubmit }>
-                            <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
-                            <button>
-                                CALL THE SENATE
-                                <img src="images/phone.svg" />
-                            </button>
-                        </form>
-
-                        <div className="privacy">
-                            This tool uses <a href="https://www.twilio.com/legal/privacy" target="_blank">Twilio</a>’s APIs.
-                            <br />
-                            Or dial <a href="tel:+16282227668">(628) 222-7668</a> to connect.
-                        </div>
-                    </div>
-
-                    <div className="paragraph">
-                        Enter your number above to call key senators to tell them to block Jeff Sessions for Attorney General.
-                    </div>
-                </div>
-
-                <div className="paragraph" >
-                    <hr />
-                    <h3>Why do we need to block Sessions?</h3>
-                    He has a longstanding voting record in opposition to important civil liberties and civil rights legislation.  And beyond that, Sessions:
-                    <br />
-                    <br />
-                    <ul>
-                        <li>said the KKK was “okay, until [he] found out they smoked pot”</li>
-                        <li>has suggested freedom of religion might not apply to immigrants, and it might be time to consider Trump’s call for a ban on Muslims</li>
-                        <li>is so anti-immigrant he has even challenged birthright citizenship</li>
-                        <li>has called the NAACP and the ACLU “un-American”</li>
-                        <li>once called a white civil rights attorney a “disgrace to his race,” and repeatedly called a Black lawyer “boy"</li>
-                        <li>characterized the Voting Rights Act as "a piece of intrusive legislation” and has refused to support legislation to restore it after it was gutted by the Supreme Court</li>
-                        <li>stood up for the banking industry when the banks were melting down in 2008</li>
-                        <li>pressured Attorney General Janet Reno not to pursue anti-trust charges against Microsoft in the 1990s</li>
-                        <li>and defended Donald Trump’s recorded bragging about grabbing women by their genitals by saying, &ldquo;I don&#039;t characterize that as sexual assault.&quot;</li>
-                    </ul>
-                </div>
-
-                <a href="#phone-form" className="call-the-senate">CALL THE SENATE<img src="images/phone.svg" /></a>
-
-            </div>
-        );
-    },
-
-    onSubmit: function(e) {
-        e.preventDefault();
-
-        const phoneField = this.refs['field-phone'];
-        const number = phoneField.value.replace(/[^\d]/g, '');
-
-        if (number.length !== 10) {
-            phoneField.focus();
-            return alert('Please enter your 10 digit phone number.');
-        }
-
-        const request = new XMLHttpRequest();
-        let url = `https://dp-call-congress.herokuapp.com/create?db=cwd&campaignId=${config.callCampaignSessions}&userPhone=${number}&source_id=${getSource()}`;
-
-        try {
-            if ('zip' in sessionStorage) {
-                url += `&zipcode=${sessionStorage.zip}`;
-            }
-        } catch (err) {
-            // Oh well
-        }
-
-        request.open('GET', url, true);
-        request.send();
-
-        this.props.changeForm('scriptsessions');
-    },
-
-    onClickOptOut: function(e) {
-        e.preventDefault();
-
-        this.props.changeForm('opt-out');
-    },
-});
-
-const BlockMnuchinPhoneForm = React.createClass({
-    render: function() {
-        return (
-            <div className="stop-sessions-wrapper">
-                <div className="phone-form-wrapper stop-sessions block-mnuchin">
-                    <div className="paragraph">
-                        <strong>Tell the Senate: Reject Trump&#039;s appointment of notorious &quot;foreclosure king&quot; Steve Mnuchin to be Treasury Secretary.</strong>
-                        <br />
-                        <br />
-                        Enter your phone number to be connected with the Senate.
-                    </div>
-
-                    <div className="phone-form" id="phone-form">
-                        <form onSubmit={ this.onSubmit }>
-                            <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
-                            <button>
-                                CALL THE SENATE
-                                <img src="images/phone.svg" />
-                            </button>
-                        </form>
-
-                        <div className="privacy">
-                            This tool uses <a href="https://www.twilio.com/legal/privacy" target="_blank">Twilio</a>’s APIs.
-                            <br />
-                            Or dial <a href="tel:+16825876214">(682) 587-6214</a> to connect.
-                        </div>
-                    </div>
-                </div>
-
-                <div className="paragraph" >
-                    <hr />
-                    <h3>Why do we need to block Mnuchin?</h3>
-                    Mnuchin is a heartless foreclosure king who got rich at the expense of ordinary Americans. He cannot be trusted to look out for anyone’s interest but his own &mdash; and that of the big banks. Just consider some of the lowlights:
-                    <br />
-                    <br />
-                    <ul>
-                        <li><strong>Mnuchin made a fortune off the foreclosure crisis.</strong> He ran a bank called a “foreclosure machine” for foreclosing on well over 36,000 homes &mdash; and later sold it for $3.4 billion.</li>
-                        <li><strong>Mnuchin would run the Treasury Department to benefit Wall Street.</strong> He’s promised to attack the Dodd-Frank reforms reining in abuse by big banks, calling it is his “number one priority on the regulatory side.”</li>
-                        <li><strong>Mnuchin’s bank foreclosed on families using techniques so coldblooded a federal judge called them “harsh, repugnant, shocking and repulsive.”</strong> He even foreclosed on a 90-year-old woman over a payment error of 27 cents.</li>
-                        <li><strong>A leaked state attorney general’s office memo revealed evidence of “widespread misconduct” by Mnuchin’s bank,</strong> OneWest, and thousands of illegal actions like forging documents.</li>
-                        <li><strong>Mnuchin is the ultimate Wall Street insider.</strong> He spent 17 years at Goldman Sachs, peddling the types of risky derivatives that caused the financial crisis, and left with $46 million. His father was a Goldman banker, too.</li>
-                        <li><strong>Until December 2016, Mnuchin sat on the board of CIT Group, a bank that’s been designated “too big to fail”</strong> and lost $2.3 billion in taxpayer bailout dollars. He earned $4.5 million a year there.</li>
-                        <li><strong>Another Mnuchin company, Relativity Media is apparently undergoing federal investigation.</strong> Mnuchin resigned as Co-Chair of Relativity Media under shady circumstances – cashing out with $50 million just two months before Relativity declared bankruptcy.</li>
-                        <li><strong>Mnuchin and his family pocketed $3.2 million from the Bernie Madoff ponzi scheme</strong> and never returned a dime to victims of Madoff’s crimes.</li>
-                    </ul>
-                </div>
-
-                <a href="#phone-form" className="call-the-senate">CALL THE SENATE<img src="images/phone.svg" /></a>
-
-            </div>
-        );
-    },
-
-    onSubmit: function(e) {
-        e.preventDefault();
-
-        const phoneField = this.refs['field-phone'];
-        const number = phoneField.value.replace(/[^\d]/g, '');
-
-        if (number.length !== 10) {
-            phoneField.focus();
-            return alert('Please enter your 10 digit phone number.');
-        }
-
-        const request = new XMLHttpRequest();
-        let url = `https://dp-call-congress.herokuapp.com/create?db=cwd&campaignId=${config.callCampaignMnuchin}&userPhone=${number}&source_id=${getSource()}`;
-
-        try {
-            if ('zip' in sessionStorage) {
-                url += `&zipcode=${sessionStorage.zip}`;
-            }
-        } catch (err) {
-            // Oh well
-        }
-
-        request.open('GET', url, true);
-        request.send();
-
-        this.props.changeForm('scriptmnuchin');
-    },
-
-    onClickOptOut: function(e) {
-        e.preventDefault();
-
-        this.props.changeForm('opt-out');
     },
 });
 
@@ -703,74 +402,6 @@ const DemoPhoneScript = React.createClass({
     },
 });
 
-const OptOutForm = React.createClass({
-    numbers: {
-        // 'The Office of the Treasury Secretary': '202-622-1100',
-        // 'The Office of the White House Chief of Staff': '202-456-3737',
-        // 'SEC Chair Mary Jo White': '202-551-2100',
-        // 'SEC Commissioner Luis Aguilar': '202-551-2500',
-        // 'SEC Commissioner Daniel Gallagher': '202-551-2600',
-        // 'SEC Commissioner Kara Stein': '202-551-2800',
-        // 'SEC Commissioner Michael Piwowar': '202-551-2700',
-        // 'The Office of the SEC General Counsel': '202-551-5100',
-        // 'The Domestic Policy Council': '202-456-5594',
-        // 'The Office of Public Engagement': '202-456-1097',
-        // 'The Office of the Press Secretary': '202-456-3282',
-        // 'The White House General Counsel': '202-456-2632',
-        // 'The Office of Management and Budget': '202-395-4840',
-        // 'White House Operations': '202-456-2500',
-        // 'The Domestic Policy Council': '202-456-6515',
-        // 'The Office of Administration': '202-456-2861',
-        // 'The Council of Economic Advisers': '202-395-5084',
-        // 'Hillary Clinton\'s Campaign': '646-854-1432',
-        'Call the Senate:': '202-335-0610',
-    },
-
-    renderNumbers: function() {
-        const numbers = [];
-
-        for (let name in this.numbers) {
-            let number = this.numbers[name];
-
-            numbers.push(
-                <div className="number">
-                    <div className="name">
-                        { name }
-                    </div>
-
-                    <div className="phone">
-                        <a href={ 'tel:' + number }>{ number }</a>
-                    </div>
-                </div>
-            );
-        }
-
-        return numbers;
-    },
-
-    render: function() {
-        return (
-            <div className="opt-out-form">
-                <div className="script">
-                    Tell them:
-                    <div className="spacer" />
-                    <div className="suggestion">
-                        &ldquo;With his cabinet nominations, Donald Trump is breaking his promises to be a president for all Americans and to make the economy work for ordinary people, not just wealthy elites.
-                        <div className="spacer" />
-                        Please fight to block and resist every Trump nominee who embraces hatred and Wall Street greed.
-                        <div className="spacer" />
-                        In particular, please vote AGAINST enemy of civil rights <strong>Jeff Sessions</strong> for Attorney General, foreclosure king <strong>Steve Mnuchin</strong> (mi-NOO-chin) for Treasury Secretary, and Wall Street billionaire <strong>Wilbur Ross</strong> for Commerce Secretary. Thank you.&quot;
-                    </div>
-                </div>
-
-                <div className="numbers">
-                    { this.renderNumbers() }
-                </div>
-            </div>
-        );
-    },
-});
-
 const PhoneScript = React.createClass({
     onClickSendFeedback: function(e) {
         e.preventDefault();
@@ -815,18 +446,18 @@ const PhoneScript = React.createClass({
     render: function() {
         return (
             <div className="phone-script">
-                <em>We’re calling you now. <br /> After the conversation, you can <strong>press *</strong> and we’ll connect you to the next office.</em>
+                <em>We’re calling you and will connect you to your senators. <br/> If you stay on the line we will keep connecting you to other key senators.</em>
                 <div className="spacer" />
+                <em>After each conversation, you can <strong>press *</strong> and we’ll connect you to the next office.</em>
 
                 <em>Here’s what you can say:</em>
                 <div className="spacer" />
 
                 <div className="suggestion">
-                    &ldquo;With his cabinet nominations, Donald Trump is breaking his promises to be a president for all Americans and to make the economy work for ordinary people, not just wealthy elites.
-                    <div className="spacer" />
-                    Please fight to block and resist every Trump nominee who embraces hatred and Wall Street greed.
-                    <div className="spacer" />
-                    In particular, please vote AGAINST enemy of civil rights <strong>Jeff Sessions</strong> for Attorney General, foreclosure king <strong>Steve Mnuchin</strong> (mi-NOO-chin) for Treasury Secretary, and Wall Street billionaire <strong>Wilbur Ross</strong> for Commerce Secretary. Thank you.&quot;
+                    <p>&ldquo;<strong>Neil Gorsuch has consistently stood with corporations and other powerful interests against everyday Americans.</strong></p>
+                    <p>Trump has launched rhetorical attacks on judges, is trying to accumulate ever more power for himself and big business interests,
+                    and seeks to undermine civil rights and social justice. <strong>Neil Gorsuch will make it even easier for Trump to implement this agenda.</strong></p>
+                    <p>Please vote against confirming Gorsuch.&quot;</p>
                 </div>
                 <div className="spacer" />
 
@@ -849,165 +480,6 @@ const PhoneScript = React.createClass({
     },
 });
 
-const StopSessionsPhoneScript = React.createClass({
-    onClickSendFeedback: function(e) {
-        e.preventDefault();
-
-        const data = {
-            campaign: config.callCampaignSessions,
-            subject: 'Feedback from ' + (config.prettyCampaignNameSessions || config.callCampaignSessions),
-            text: '',
-        };
-
-        const fields = [
-            document.querySelector('#who'),
-            document.querySelector('#how'),
-        ];
-
-        fields.forEach(field => {
-            data.text += `${field.name}:\n${field.value}\n\n`;
-        });
-
-        let url = urls.feedback;
-
-        for (let key in data) {
-            url += key;
-            url += '=';
-            url += encodeURIComponent(data[key]);
-            url += '&';
-        }
-
-        ajax.get(url);
-
-        this.setState({
-            sent: true,
-        });
-    },
-
-    getInitialState: function() {
-        return {
-            sent: false,
-        };
-    },
-
-    render: function() {
-        return (
-            <div className="phone-script">
-                <em>We&#039;re calling you now.</em>
-                <div className="spacer" />
-                <em>First we will connect you to your own senators, and then we will connect you to other key senators who will help decide if Jeff Sessions becomes Attorney General.</em>
-                <div className="spacer" />
-
-                <em>After each conversation, you can <strong>press *</strong> and we’ll connect you to the next office. Each conversation you have will make us stronger and increase the chances we win this fight.</em>
-                <div className="spacer" />
-
-                <em>Here’s what you can say:</em>
-                <div className="spacer" />
-
-                <div className="suggestion">
-                    “Please publicly <strong>OPPOSE Jeff Sessions for Attorney General.</strong> His history is far too racist, sexist, and pro-corporate to trust him in charge of the Justice Department.
-                    <div className="spacer" />
-                    Additionally, please demand that Sessions answers <strong>tough questions</strong> during his hearing & insist on the <strong>full 30 hours of debate</strong> for his nomination.”
-                </div>
-                <div className="spacer" />
-
-                <div className="calling-wrapper">
-                    <h3>After your call(s), use the form to let us know how it went and what you heard!</h3>
-                    <form action="#" method="get" className={this.state.sent ? 'sent' : false}>
-                        <div className="wrapper">
-                            <h4>Who did you speak with?</h4>
-                            <input required="required" type="text" name="Who did you speak with?" id="who" />
-                            <h4>How did it go?</h4>
-                            <input required="required" type="text" name="How did it go?" id="how" />
-                            <br />
-                            <div id="thanks">Thank you!</div>
-                            <button onClick={this.onClickSendFeedback} type="submit" name="submit">Send Feedback</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        );
-    },
-});
-
-const BlockMnuchinPhoneScript = React.createClass({
-    onClickSendFeedback: function(e) {
-        e.preventDefault();
-
-        const data = {
-            campaign: config.callCampaignMnuchin,
-            subject: 'Feedback from ' + (config.prettyCampaignNameMnuchin || config.callCampaignMnuchin),
-            text: '',
-        };
-
-        const fields = [
-            document.querySelector('#who'),
-            document.querySelector('#how'),
-        ];
-
-        fields.forEach(field => {
-            data.text += `${field.name}:\n${field.value}\n\n`;
-        });
-
-        let url = urls.feedback;
-
-        for (let key in data) {
-            url += key;
-            url += '=';
-            url += encodeURIComponent(data[key]);
-            url += '&';
-        }
-
-        ajax.get(url);
-
-        this.setState({
-            sent: true,
-        });
-    },
-
-    getInitialState: function() {
-        return {
-            sent: false,
-        };
-    },
-
-    render: function() {
-        return (
-            <div className="phone-script">
-                <em>We&#039;re calling you now.</em>
-                <div className="spacer" />
-                <em>First we will connect you to your own senators, and then we will connect you to other key senators who will help decide if Steve Mnuchin becomes Treasury Secretary.</em>
-                <div className="spacer" />
-
-                <em>After each conversation, you can <strong>press *</strong> and we’ll connect you to the next office. Each conversation you have will make us stronger and increase the chances we win this fight.</em>
-                <div className="spacer" />
-
-                <em>Here’s what you can say:</em>
-                <div className="spacer" />
-
-                <div className="suggestion">
-                    <strong>“Please vote AGAINST making Steve Mnuchin (Mi-NEW-chin) the Treasury Secretary.</strong> His history as a notorious “foreclosure king” &mdash; who got rich at the expense of ordinary people &mdash; makes him unfit for such a critical position.
-                </div>
-                <div className="spacer" />
-
-                <div className="calling-wrapper">
-                    <h3>After your call(s), use the form to let us know how it went and what you heard!</h3>
-                    <form action="#" method="get" className={this.state.sent ? 'sent' : false}>
-                        <div className="wrapper">
-                            <h4>Who did you speak with?</h4>
-                            <input required="required" type="text" name="Who did you speak with?" id="who" />
-                            <h4>How did it go?</h4>
-                            <input required="required" type="text" name="How did it go?" id="how" />
-                            <br />
-                            <div id="thanks">Thank you!</div>
-                            <button onClick={this.onClickSendFeedback} type="submit" name="submit">Send Feedback</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        );
-    },
-});
 
 const Thanks = React.createClass({
     render: function() {
@@ -1023,32 +495,12 @@ const Form = React.createClass({
     render: function() {
         let form;
         switch (this.state.form) {
-            case 'email':
-            form = <EmailForm changeForm={ this.changeForm } />;
-            break;
-
             case 'phone':
             form = <PhoneForm changeForm={ this.changeForm } />;
             break;
 
             case 'script':
             form = <PhoneScript />;
-            break;
-
-            case 'stopsessions':
-            form = <StopSessionsPhoneForm changeForm={ this.changeForm } />;
-            break;
-
-            case 'scriptsessions':
-            form = <StopSessionsPhoneScript />;
-            break;
-
-            case 'blockmnuchin':
-            form = <BlockMnuchinPhoneForm changeForm={ this.changeForm } />;
-            break;
-
-            case 'scriptmnuchin':
-            form = <BlockMnuchinPhoneScript />;
             break;
 
             case 'demophone':
@@ -1076,7 +528,7 @@ const Form = React.createClass({
     },
 
     getInitialState: function () {
-        let form = 'email';
+        let form = 'phone';
 
         if (state.query.call_tool) {
             form = 'phone';
@@ -1095,7 +547,7 @@ const Form = React.createClass({
         }
 
         if ('embeddedConfiguration' in window) {
-            form = embeddedConfiguration.phase || 'email';
+            form = embeddedConfiguration.phase || 'phone';
         }
 
         return {
@@ -1127,36 +579,10 @@ const Organizations = () => (
                 <a title="350.org" href="https://350.org/" target="_blank"><img src="images/logos/350-logo-org.png" /></a>
                 <a title="American Family Voices" href="http://www.americanfamilyvoices.org" target="_blank"><img src="images/logos/afv.jpg" /></a>
                 <a title="Americans for Tax Fairness Action Fund" href="http://atfactionfund.org/" target="_blank"><img src="images/logos/ATFAF.png" /></a>
-                <a title="Catholics in Alliance" href="http://www.catholicsinalliance.org/" target="_blank"><img src="images/logos/CatholicsInAlliance.jpg" /></a>
-                <a title="Courage Campaign" href="https://couragecampaign.org/" target="_blank"><img src="images/logos/Courage-Logo-Color-High-Rez.jpg" /></a>
-                <a title="CPD Action" href="https://cpdaction.org/" target="_blank"><img src="images/logos/cpd-action-logo.png" /></a>
-                <a title="CWA" href="http://www.cwa-union.org/" target="_blank"><img src="images/logos/CWA-blue-line.jpg" /></a>
-                <a title="Daily Kos" href="http://www.dailykos.com/" target="_blank"><img src="images/logos/dk_logo_400dpi_1024.jpg" /></a>
-                <a title="Rootstrikers" href="http://www.rootstrikers.org/#!/" target="_blank"><img src="images/logos/logo-rootstrikers-blacktext_900px.png" /></a>
-                <a title="Democracy for America" href="https://www.democracyforamerica.com/" target="_blank"><img src="images/logos/DFA_logo_bottom_200.png" /></a>
-                <a title="Free Press Action Fund" href="https://www.freepress.net/" target="_blank"><img src="images/logos/fp-actionfund.png" /></a>
-                <a title="Friends of the Earth" href="http://www.foe.org/" target="_blank"><img src="images/logos/FOE_logo_color.jpg" /></a>
-                <a title="Greenpeace" href="http://www.greenpeace.org/usa/" target="_blank"><img src="images/logos/Greenpeace-Logo.jpg" /></a>
-                <a title="Hedge Clippers" href="http://hedgeclippers.org/" target="_blank"><img src="images/logos/HedgeClippers.jpg" /></a>
-                <a title="League of Conservation Votes" href="http://www.lcv.org/" target="_blank"><img src="images/logos/lcv_horizontal_url_large.jpg" /></a>
-                <a title="MPower Change" href="https://mpowerchange.org/" target="_blank"><img src="images/logos/MPower Change Action v2.png" /></a>
-                <a title="NYCC" href="http://nycommunities.org/" target="_blank"><img src="images/logos/ny-communities-for-change.png" /></a>
-                <a title="Other 98% Action" href="http://other98.com/" target="_blank"><img src="images/logos/o98-black-horizontal.png" /></a>
-                <a title="People's Action" href="https://peoplesaction.org/" target="_blank"><img src="images/logos/PeoplesAction.png" /></a>
-                <a title="People for the American Way" href="http://www.pfaw.org/" target="_blank"><img src="images/logos/pfaw-logo.jpg" /></a>
-                <a title="Presente Action" href="http://www.presente.org/" target="_blank"><img src="images/logos/PresenteActionLogo.jpeg" /></a>
-                <a title="Public Citizen" href="http://www.citizen.org/Page.aspx?pid=183" target="_blank"><img src="images/logos/publiccitizen.jpg" /></a>
-                <a title="RootsAction" href="http://rootsaction.org/" target="_blank"><img src="images/logos/RootsAction_transparent300.png" /></a>
-                <a title="SumOfUs" href="https://www.sumofus.org/" target="_blank"><img src="images/logos/SumOfUs_horiz-logo-color.jpg" /></a>
-                <a title="The Nation" href="https://www.thenation.com/" target="_blank"><img src="images/logos/NewNationLogo07.jpg" /></a>
-                <a title="UltraViolet" href="https://weareultraviolet.org/" target="_blank"><img src="images/logos/ultraviolet.jpg" /></a>
-                <a title="Win Without War" href="http://winwithoutwar.org/" target="_blank"><img src="images/logos/WWW Logo_Stacked_Color_LARGE-1.jpg" /></a>
-                <a title="Working Families Party" href="http://workingfamilies.org/" target="_blank"><img src="images/logos/wfp.jpg" /></a>
             </div>
         </div>
     </div>
 );
-
 
 const Contact = React.createClass({
     render: function() {
@@ -1242,70 +668,6 @@ const Social = React.createClass({
         window.open(url);
     },
 });
-
-const BodyCopy = () => (
-    <div className="paragraph">
-        <hr />
-        Trump rose to power with a divisive campaign that showed he was willing to embrace every fringe ideology from xenophobia to sexism to flat-out racism in order to gain power.
-
-        <h3>Trump’s Broken Promises</h3>
-        Trump promised on election night to be “a president for all Americans.” But the parade of horribles that Trump has nominated to his administration show he is welcoming hate right into the White House.
-        <div className="spacer" />
-        And his pledge during the campaign to “drain the swamp” and make Washington work for ordinary Americans instead of powerful elites? Forget about it. Trump’s cabinet is so pro-corporate it’s called “an investment banker’s dream.”
-        <div className="spacer" />
-
-        <h3>Who the Trump Cabinet Really Works For</h3>
-        Wall Street bankers and Trump’s corporate cronies are cheering the Trump agenda. It’s a corporate wish list that would eliminate protections for working people and our environment, and eviscerate strong rules reining in Wall Street.
-        <div className="spacer" />
-        The Trump administration is shaping up to benefit Donald Trump and his family’s business empire in a big way, with massive conflicts of interest posed by Trump’s continued stake in the Trump Organization.
-        <div className="spacer" />
-
-        <h3>The Senate Must Block and Resist Trump's Cabinet</h3>
-        The U.S. Senate has confirmation power over most of Trump's cabinet. Senators must use this power to block and resist Trump’s cabinet of hate and greed. Consider who we’re talking about:
-        <div className="spacer" />
-
-        <div className="profiles">
-            <div className="profile">
-                <img src="images/profiles/Jeff_Sessions.jpg" alt="Jeff Sessions photo" />
-                <strong>Enemy of civil rights and women&#039;s rights Jeff Sessions (Attorney General)</strong> &mdash; The same Jeff Sessions who was deemed too racist to confirm to a federal judgeship by a Republican Judiciary Committee in 1986 would be in charge of the Department of Justice. If confirmed, he would be responsible for enforcing the country’s civil rights laws, despite <a href="http://www.cnn.com/2016/11/17/politics/jeff-sessions-racism-allegations/index.html" target="_blank">a history</a> of calling a black subordinate "boy," "joking" about supporting the Ku Klux Klan, and calling the ACLU and NAACP "un-American." His anti-woman record speaks for itself: He said <a href="http://www.weeklystandard.com/jeff-sessions-behavior-described-by-trump-in-grab-them-by-the-p-y-tape-isnt-sexual-assault/article/2004799?custom_click=rss" target="_blank"> "I don't characterize" grabbing women by the genitals "as sexual assault,"</a> voted <a href="https://www.govtrack.us/congress/votes/113-2013/s19" target="_blank">against reauthorizing the Violence Against Women Act</a> and <a href="http://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=113&session=2&vote=00059" target="_blank">against bipartisan legislation to curb sexual assault</a> in the military <a href="http://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=114&session=1&vote=00211">&ndash; twice.</a>
-            </div>
-            <div className="spacer clear" />
-
-            <div className="profile">
-                <img src="images/profiles/Mnuchin.jpg" alt="Steve Mnuchin photo" />
-                <strong>Foreclosure king Steve Mnuchin (Treasury Secretary)</strong> &mdash; Steve Mnuchin is an ultra-wealthy former Goldman Sachs executive who got rich at the expense of working Americans. He ran a bank called a "foreclosure machine" that kicked people out of their houses, <a href="http://prospect.org/article/steve-mnuchin-evictor-forecloser-and-our-new-treasury-secretary" target="_blank">using techniques so coldblooded</a> a federal judge called them “harsh, repugnant, shocking and repulsive,” <a href="http://www.bloomberg.com/politics/articles/2016-11-22/trump-treasury-contender-mnuchin-found-profits-in-mortgage-mess" target="_blank">foreclosing on more than 36,000 homes.</a> He and his family pocketed $3.2 million in <a href="http://www.bloomberg.com/politics/articles/2016-05-06/trump-s-new-finance-chairman-was-sued-over-madoff-fraud-profit" target="_blank">fake profits from notorious Ponzi scheme fraudster Bernie Madoff.</a> Mnuchin will run the Treasury Department to benefit Wall Street, saying his <a href="http://www.politico.com/blogs/donald-trump-administration/2016/11/dodd-frank-targeted-mnuchin-231994" target="_blank">“number one priority on the regulatory side" is attacking Dodd-Frank Wall Street reforms reining in big banks.</a>
-            </div>
-            <div className="spacer clear" />
-
-            <div className="profile">
-                <img src="images/profiles/Tillerson.jpg" alt="Rex Tillerson photo" />
-                <strong>Big Oil crony Rex Tillerson (Secretary of State)</strong> &mdash; As CEO of Exxon, Tillerson has specialized in <a href="http://www.usatoday.com/story/opinion/2016/12/13/tillerson-trump-secretary-state-russia-oil-column/95371462/" target="_blank">partnering with dictators and human rights abusers</a> from Equatorial Guinea to Qatar to Kazakhstan. But his closest ties are with Russia, where after billions of dollars in oil deals Vladimir Putin awarded Tillerson <a href="http://money.cnn.com/2016/12/11/investing/rex-tillerson-exxon-russia-putin/index.html" target="_blank">Russia's Order of Friendship.</a> Exxon even complained international sanctions against Russia cost the company $1 billion. Under Tillerson's leadership, Exxon has <a href="http://www.latimes.com/business/la-fi-exxon-global-warming-20160120-story.html" target="_blank">faced securities fraud investigations</a> for lying to investors and funding climate deniers decades after it knew the truth about climate change.
-            </div>
-            <div className="spacer clear" />
-
-            <div className="profile">
-                <img src="images/profiles/WilburRoss.jpg" alt="Wilbur Ross photo" />
-                <strong>Wall Street billionaire Wilbur Ross (Secretary of Commerce)</strong> &mdash; Trump's pick for Secretary of Commerce, Wilbur Ross, is a Wall Street billionaire who made his money as a notorious "vulture investor." The so-called "king of bankruptcy," <a href="http://www.thedailybeast.com/articles/2016/11/17/could-this-man-be-donald-trump-s-future-secretary-of-outsourcing.html" target="_blank">he offshored American textile jobs to China and Mexico</a> and <a href="http://www.huffingtonpost.com/entry/trump-wilbur-ross_us_582b4c04e4b01d8a014abacb" target="_blank">12 coal workers controversially died at his mine in West Virginia.</a> But he complains that <a href="http://www.huffingtonpost.com/entry/trump-wilbur-ross_us_582b4c04e4b01d8a014abacb" target="_blank">“the 1 percent is being picked on for political reasons.”</a> Ross bailed out Donald Trump's failing casinos in Atlantic City, <a href="http://www.nytimes.com/2016/11/25/business/dealbook/wilbur-ross-commerce-secretary-donald-trump.html?ref=business&_r=0" target="_blank">buying himself a seat in Trump's crony cabinet.</a>
-            </div>
-            <div className="spacer clear" />
-
-            <div className="profile">
-                <img src="images/profiles/Pruitt.jpg" alt="Scott Pruitt photo" />
-                <strong>Climate science denier Scott Pruitt (EPA Administrator)</strong> &mdash; Scott Pruitt is a notorious shill for the polluting fossil fuel industry – <a href="http://www.followthemoney.org/show-me?d-cci=36%2C33&c-t-eid=6583668&d-ccb=95%2C98%2C97#[%7B1%7Cgro=y" target="_blank">which has given him more than $300,000 since 2002.</a> Pruitt <a href="http://www.cnn.com/2016/12/07/politics/trump-picks-scott-pruitt-to-head-epa/index.html" target="_blank">erroneously claims climate change is &ldquo;far from settled&rdquo; among scientists</a> and brags he has <a href="https://www.linkedin.com/in/e-scott-pruitt-3b771653" target="_blank">“led the charge… against the U.S. Environmental Protection Agency.”</a> As Oklahoma Attorney General, he has <a href="http://thehill.com/policy/energy-environment/309373-trump-confirms-epa-pick" target="_blank">repeatedly sued the EPA</a> to attack the Clean Power Plan and Clean Water Rule, <a href="https://www.nytimes.com/2014/12/07/us/politics/energy-firms-in-secretive-alliance-with-attorneys-general.html?_r=0&smid=tw-share" target="_blank">even passing off as his own</a> a letter criticizing the EPA written and delivered to him by a big oil company’s top lobbyist.
-            </div>
-            <div className="spacer clear" />
-        </div>
-
-        The Senate will be narrowly divided 52-48 between Republicans and Democrats in 2017 and many key Senate committees will be split 10-9 or 11-10. <strong>If Democrats stick together it could only take one or two principled Republican votes to block many of Trump’s nominees.</strong>
-        <div className="spacer" />
-
-        Donald Trump may have won the Electoral College, but members of the U.S. Senate should not give any support to Trump appointees espousing racism, xenophobia, misogyny, homophobia, climate denial, and corporate greed.
-        <div className="spacer" />
-
-        <a href="#petition" className="sign-the-petition">Sign the petition if you agree.</a>
-
-    </div>
-);
 
 const CallPages = React.createClass({
     render: function() {

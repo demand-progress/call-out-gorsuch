@@ -48,14 +48,10 @@
 
 	// Config
 	var config = {};
-	config.akPage = 'block-trumps-cabinet-www';
-	config.callCampaign = 'block-trumps-cabinet';
-	config.callCampaignSessions = 'block-trumps-cabinet-stop-sessions';
-	config.callCampaignMnuchin = 'block-trumps-cabinet-block-mnuchin';
-	config.link = 'https://http://calloutgorsuch.com/';
-	config.prettyCampaignName = 'Block Trump\'s Cabinet';
-	config.prettyCampaignNameSessions = 'Block Trump\'s Cabinet - Stop Sessions';
-	config.prettyCampaignNameMnuchin = 'Block Trump\'s Cabinet - Stop Mnuchin';
+	config.akPage = 'call-out-gorsuch-www';
+	config.callCampaign = 'call-out-gorsuch';
+	config.link = 'https://calloutgorsuch.com/';
+	config.prettyCampaignName = "Oppose Trump's takeover of Supreme Court";
 
 	// Modules
 	var React = __webpack_require__(1);
@@ -234,146 +230,16 @@
 	                'Tell the Senate:'
 	            ),
 	            React.createElement('br', null),
-	            'Block Trump\u2019s Cabinet ',
+	            'Oppose Trump\'s takeover ',
 	            React.createElement(
 	                'span',
 	                { className: 'single-word' },
 	                'of'
 	            ),
-	            ' Hate ',
-	            React.createElement(
-	                'span',
-	                { className: 'single-word' },
-	                'and'
-	            ),
-	            ' Wall Street Greed'
+	            ' the Supreme Court'
 	        )
 	    );
 	};
-
-	var EmailForm = React.createClass({
-	    displayName: 'EmailForm',
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'email-form' },
-	            React.createElement(
-	                'div',
-	                { className: 'petition', id: 'petition' },
-	                React.createElement(
-	                    'h3',
-	                    null,
-	                    'Petition to members of the U.S. Senate:'
-	                ),
-	                'Donald Trump\u2019s first appointments to cabinet-level roles in his administration are horrifying. Trump\u2019s nominees and rumored picks have promoted white nationalism, attacked climate science, and used their power as Wall Street insiders and corporate lobbyists to fleece working families.',
-	                React.createElement('div', { className: 'spacer' }),
-	                'As representatives of all Americans, you must stand up against hatred and greed. Fight to block and resist every Trump nominee who embraces racism, xenophobia, misogyny, homophobia, climate denial, and Wall Street greed.',
-	                React.createElement(
-	                    'form',
-	                    { onSubmit: this.onSubmit, ref: 'form' },
-	                    React.createElement('input', { className: 'name', name: 'name', placeholder: 'Your name', autoFocus: 'autoFocus' }),
-	                    React.createElement('input', { className: 'email', name: 'email', placeholder: 'Email', type: 'email' }),
-	                    React.createElement('input', { className: 'zip', name: 'zip', placeholder: 'Zip code', type: 'tel' }),
-	                    React.createElement(
-	                        'button',
-	                        null,
-	                        'Sign the Petition'
-	                    )
-	                ),
-	                React.createElement(
-	                    'div',
-	                    { className: 'disclaimer' },
-	                    'One or more partner groups may send you updates on this and other important campaigns by email. If at any time you would like to unsubscribe from any of these email lists, you may do so.'
-	                ),
-	                React.createElement(Counter, null)
-	            ),
-	            React.createElement(BodyCopy, null)
-	        );
-	    },
-
-	    onSubmit: function onSubmit(e) {
-	        e.preventDefault();
-
-	        var form = this.refs.form;
-
-	        var name = form.querySelector('[name="name"]');
-	        if (!name.value.trim()) {
-	            name.focus();
-	            alert('Please enter your name.');
-	            return;
-	        }
-
-	        var emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-	        var email = form.querySelector('[name="email"]');
-	        if (!email.value.trim()) {
-	            email.focus();
-	            alert('Please enter your email.');
-	            return;
-	        } else if (!emailRegex.test(email.value.trim())) {
-	            email.focus();
-	            alert('Please enter a valid email.');
-	            return;
-	        }
-
-	        var zip = form.querySelector('[name="zip"]');
-	        if (!zip.value.trim()) {
-	            zip.focus();
-	            alert('Please enter your zip.');
-	            return;
-	        }
-
-	        try {
-	            sessionStorage.zip = zip.value.trim();
-	        } catch (err) {
-	            // Oh well
-	        }
-
-	        var fields = {
-	            'action_user_agent': navigator.userAgent,
-	            'country': 'United States',
-	            'email': email.value.trim(),
-	            'form_name': 'act-petition',
-	            'js': 1,
-	            'name': name.value.trim(),
-	            // 'opt_in': 1,
-	            'page': config.akPage,
-	            'source': getSource(),
-	            'want_progress': 1,
-	            'zip': zip.value.trim()
-	        };
-
-	        sendFormToActionKit(fields);
-
-	        this.props.changeForm('phone');
-	    }
-	});
-
-	function Counter() {
-	    var className = 'counter';
-
-	    if (state.count > 0) {
-	        className += ' loaded';
-	    }
-
-	    var signatures = numberWithCommas(state.count);
-
-	    return React.createElement(
-	        'div',
-	        { className: className },
-	        React.createElement('hr', null),
-	        React.createElement(
-	            'div',
-	            { className: 'number-of-signatures' },
-	            signatures
-	        ),
-	        React.createElement(
-	            'div',
-	            { className: 'number-of-signatures-label' },
-	            'signatures are in'
-	        )
-	    );
-	}
 
 	function numberWithCommas(x) {
 	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -387,16 +253,24 @@
 	            'div',
 	            { className: 'phone-form-wrapper' },
 	            React.createElement(
-	                'h2',
+	                'p',
 	                null,
-	                'Thanks for signing. ',
-	                React.createElement('br', null),
-	                ' Now, could you make a call?'
+	                'Neil Gorsuch is Donald Trump\'s Supreme Court nominee -- and he is even more conservative than Antonin Scalia was. Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.'
 	            ),
 	            React.createElement(
-	                'div',
-	                { className: 'paragraph' },
-	                'It\u2019s the single most effective thing you can do.'
+	                'p',
+	                null,
+	                'Gorsuch has a long history of siding with powerful interests over everyday Americans.  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice we simply cannot afford to let the court shift to the far right. '
+	            ),
+	            React.createElement(
+	                'h3',
+	                null,
+	                'The Senate Must Block and Resist Trump\'s Supreme Court'
+	            ),
+	            React.createElement(
+	                'p',
+	                null,
+	                'The Senate will be voting on Gorsuch soon -- we need you to call your senators now and tell them to vote no.'
 	            ),
 	            React.createElement(
 	                'div',
@@ -469,378 +343,6 @@
 	        request.send();
 
 	        this.props.changeForm('script');
-	    },
-
-	    onClickOptOut: function onClickOptOut(e) {
-	        e.preventDefault();
-
-	        this.props.changeForm('opt-out');
-	    }
-	});
-
-	var StopSessionsPhoneForm = React.createClass({
-	    displayName: 'StopSessionsPhoneForm',
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'stop-sessions-wrapper' },
-	            React.createElement(
-	                'div',
-	                { className: 'phone-form-wrapper stop-sessions' },
-	                React.createElement(
-	                    'div',
-	                    { className: 'paragraph' },
-	                    React.createElement(
-	                        'strong',
-	                        null,
-	                        'Hearings on Trump\'s appointment of Jeff Sessions to be Attorney General have already begun.',
-	                        React.createElement('br', null),
-	                        React.createElement('br', null),
-	                        'Senate Democrats need to get their backbones and block the appointment of this authoritarian, corporatist, racist, and sexist to run our law enforcement apparatus.'
-	                    )
-	                ),
-	                React.createElement(
-	                    'div',
-	                    { className: 'phone-form', id: 'phone-form' },
-	                    React.createElement(
-	                        'form',
-	                        { onSubmit: this.onSubmit },
-	                        React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone', ref: 'field-phone', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*', autoFocus: true }),
-	                        React.createElement(
-	                            'button',
-	                            null,
-	                            'CALL THE SENATE',
-	                            React.createElement('img', { src: 'images/phone.svg' })
-	                        )
-	                    ),
-	                    React.createElement(
-	                        'div',
-	                        { className: 'privacy' },
-	                        'This tool uses ',
-	                        React.createElement(
-	                            'a',
-	                            { href: 'https://www.twilio.com/legal/privacy', target: '_blank' },
-	                            'Twilio'
-	                        ),
-	                        '\u2019s APIs.',
-	                        React.createElement('br', null),
-	                        'Or dial ',
-	                        React.createElement(
-	                            'a',
-	                            { href: 'tel:+16282227668' },
-	                            '(628) 222-7668'
-	                        ),
-	                        ' to connect.'
-	                    )
-	                ),
-	                React.createElement(
-	                    'div',
-	                    { className: 'paragraph' },
-	                    'Enter your number above to call key senators to tell them to block Jeff Sessions for Attorney General.'
-	                )
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'paragraph' },
-	                React.createElement('hr', null),
-	                React.createElement(
-	                    'h3',
-	                    null,
-	                    'Why do we need to block Sessions?'
-	                ),
-	                'He has a longstanding voting record in opposition to important civil liberties and civil rights legislation.  And beyond that, Sessions:',
-	                React.createElement('br', null),
-	                React.createElement('br', null),
-	                React.createElement(
-	                    'ul',
-	                    null,
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'said the KKK was \u201Cokay, until [he] found out they smoked pot\u201D'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'has suggested freedom of religion might not apply to immigrants, and it might be time to consider Trump\u2019s call for a ban on Muslims'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'is so anti-immigrant he has even challenged birthright citizenship'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'has called the NAACP and the ACLU \u201Cun-American\u201D'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'once called a white civil rights attorney a \u201Cdisgrace to his race,\u201D and repeatedly called a Black lawyer \u201Cboy"'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'characterized the Voting Rights Act as "a piece of intrusive legislation\u201D and has refused to support legislation to restore it after it was gutted by the Supreme Court'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'stood up for the banking industry when the banks were melting down in 2008'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'pressured Attorney General Janet Reno not to pursue anti-trust charges against Microsoft in the 1990s'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        'and defended Donald Trump\u2019s recorded bragging about grabbing women by their genitals by saying, \u201CI don\'t characterize that as sexual assault."'
-	                    )
-	                )
-	            ),
-	            React.createElement(
-	                'a',
-	                { href: '#phone-form', className: 'call-the-senate' },
-	                'CALL THE SENATE',
-	                React.createElement('img', { src: 'images/phone.svg' })
-	            )
-	        );
-	    },
-
-	    onSubmit: function onSubmit(e) {
-	        e.preventDefault();
-
-	        var phoneField = this.refs['field-phone'];
-	        var number = phoneField.value.replace(/[^\d]/g, '');
-
-	        if (number.length !== 10) {
-	            phoneField.focus();
-	            return alert('Please enter your 10 digit phone number.');
-	        }
-
-	        var request = new XMLHttpRequest();
-	        var url = 'https://dp-call-congress.herokuapp.com/create?db=cwd&campaignId=' + config.callCampaignSessions + '&userPhone=' + number + '&source_id=' + getSource();
-
-	        try {
-	            if ('zip' in sessionStorage) {
-	                url += '&zipcode=' + sessionStorage.zip;
-	            }
-	        } catch (err) {
-	            // Oh well
-	        }
-
-	        request.open('GET', url, true);
-	        request.send();
-
-	        this.props.changeForm('scriptsessions');
-	    },
-
-	    onClickOptOut: function onClickOptOut(e) {
-	        e.preventDefault();
-
-	        this.props.changeForm('opt-out');
-	    }
-	});
-
-	var BlockMnuchinPhoneForm = React.createClass({
-	    displayName: 'BlockMnuchinPhoneForm',
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'stop-sessions-wrapper' },
-	            React.createElement(
-	                'div',
-	                { className: 'phone-form-wrapper stop-sessions block-mnuchin' },
-	                React.createElement(
-	                    'div',
-	                    { className: 'paragraph' },
-	                    React.createElement(
-	                        'strong',
-	                        null,
-	                        'Tell the Senate: Reject Trump\'s appointment of notorious "foreclosure king" Steve Mnuchin to be Treasury Secretary.'
-	                    ),
-	                    React.createElement('br', null),
-	                    React.createElement('br', null),
-	                    'Enter your phone number to be connected with the Senate.'
-	                ),
-	                React.createElement(
-	                    'div',
-	                    { className: 'phone-form', id: 'phone-form' },
-	                    React.createElement(
-	                        'form',
-	                        { onSubmit: this.onSubmit },
-	                        React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone', ref: 'field-phone', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*', autoFocus: true }),
-	                        React.createElement(
-	                            'button',
-	                            null,
-	                            'CALL THE SENATE',
-	                            React.createElement('img', { src: 'images/phone.svg' })
-	                        )
-	                    ),
-	                    React.createElement(
-	                        'div',
-	                        { className: 'privacy' },
-	                        'This tool uses ',
-	                        React.createElement(
-	                            'a',
-	                            { href: 'https://www.twilio.com/legal/privacy', target: '_blank' },
-	                            'Twilio'
-	                        ),
-	                        '\u2019s APIs.',
-	                        React.createElement('br', null),
-	                        'Or dial ',
-	                        React.createElement(
-	                            'a',
-	                            { href: 'tel:+16825876214' },
-	                            '(682) 587-6214'
-	                        ),
-	                        ' to connect.'
-	                    )
-	                )
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'paragraph' },
-	                React.createElement('hr', null),
-	                React.createElement(
-	                    'h3',
-	                    null,
-	                    'Why do we need to block Mnuchin?'
-	                ),
-	                'Mnuchin is a heartless foreclosure king who got rich at the expense of ordinary Americans. He cannot be trusted to look out for anyone\u2019s interest but his own \u2014 and that of the big banks. Just consider some of the lowlights:',
-	                React.createElement('br', null),
-	                React.createElement('br', null),
-	                React.createElement(
-	                    'ul',
-	                    null,
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        React.createElement(
-	                            'strong',
-	                            null,
-	                            'Mnuchin made a fortune off the foreclosure crisis.'
-	                        ),
-	                        ' He ran a bank called a \u201Cforeclosure machine\u201D for foreclosing on well over 36,000 homes \u2014 and later sold it for $3.4 billion.'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        React.createElement(
-	                            'strong',
-	                            null,
-	                            'Mnuchin would run the Treasury Department to benefit Wall Street.'
-	                        ),
-	                        ' He\u2019s promised to attack the Dodd-Frank reforms reining in abuse by big banks, calling it is his \u201Cnumber one priority on the regulatory side.\u201D'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        React.createElement(
-	                            'strong',
-	                            null,
-	                            'Mnuchin\u2019s bank foreclosed on families using techniques so coldblooded a federal judge called them \u201Charsh, repugnant, shocking and repulsive.\u201D'
-	                        ),
-	                        ' He even foreclosed on a 90-year-old woman over a payment error of 27 cents.'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        React.createElement(
-	                            'strong',
-	                            null,
-	                            'A leaked state attorney general\u2019s office memo revealed evidence of \u201Cwidespread misconduct\u201D by Mnuchin\u2019s bank,'
-	                        ),
-	                        ' OneWest, and thousands of illegal actions like forging documents.'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        React.createElement(
-	                            'strong',
-	                            null,
-	                            'Mnuchin is the ultimate Wall Street insider.'
-	                        ),
-	                        ' He spent 17 years at Goldman Sachs, peddling the types of risky derivatives that caused the financial crisis, and left with $46 million. His father was a Goldman banker, too.'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        React.createElement(
-	                            'strong',
-	                            null,
-	                            'Until December 2016, Mnuchin sat on the board of CIT Group, a bank that\u2019s been designated \u201Ctoo big to fail\u201D'
-	                        ),
-	                        ' and lost $2.3 billion in taxpayer bailout dollars. He earned $4.5 million a year there.'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        React.createElement(
-	                            'strong',
-	                            null,
-	                            'Another Mnuchin company, Relativity Media is apparently undergoing federal investigation.'
-	                        ),
-	                        ' Mnuchin resigned as Co-Chair of Relativity Media under shady circumstances \u2013 cashing out with $50 million just two months before Relativity declared bankruptcy.'
-	                    ),
-	                    React.createElement(
-	                        'li',
-	                        null,
-	                        React.createElement(
-	                            'strong',
-	                            null,
-	                            'Mnuchin and his family pocketed $3.2 million from the Bernie Madoff ponzi scheme'
-	                        ),
-	                        ' and never returned a dime to victims of Madoff\u2019s crimes.'
-	                    )
-	                )
-	            ),
-	            React.createElement(
-	                'a',
-	                { href: '#phone-form', className: 'call-the-senate' },
-	                'CALL THE SENATE',
-	                React.createElement('img', { src: 'images/phone.svg' })
-	            )
-	        );
-	    },
-
-	    onSubmit: function onSubmit(e) {
-	        e.preventDefault();
-
-	        var phoneField = this.refs['field-phone'];
-	        var number = phoneField.value.replace(/[^\d]/g, '');
-
-	        if (number.length !== 10) {
-	            phoneField.focus();
-	            return alert('Please enter your 10 digit phone number.');
-	        }
-
-	        var request = new XMLHttpRequest();
-	        var url = 'https://dp-call-congress.herokuapp.com/create?db=cwd&campaignId=' + config.callCampaignMnuchin + '&userPhone=' + number + '&source_id=' + getSource();
-
-	        try {
-	            if ('zip' in sessionStorage) {
-	                url += '&zipcode=' + sessionStorage.zip;
-	            }
-	        } catch (err) {
-	            // Oh well
-	        }
-
-	        request.open('GET', url, true);
-	        request.send();
-
-	        this.props.changeForm('scriptmnuchin');
-	    },
-
-	    onClickOptOut: function onClickOptOut(e) {
-	        e.preventDefault();
-
-	        this.props.changeForm('opt-out');
 	    }
 	});
 
@@ -1094,106 +596,6 @@
 	    }
 	});
 
-	var OptOutForm = React.createClass({
-	    displayName: 'OptOutForm',
-
-	    numbers: {
-	        // 'The Office of the Treasury Secretary': '202-622-1100',
-	        // 'The Office of the White House Chief of Staff': '202-456-3737',
-	        // 'SEC Chair Mary Jo White': '202-551-2100',
-	        // 'SEC Commissioner Luis Aguilar': '202-551-2500',
-	        // 'SEC Commissioner Daniel Gallagher': '202-551-2600',
-	        // 'SEC Commissioner Kara Stein': '202-551-2800',
-	        // 'SEC Commissioner Michael Piwowar': '202-551-2700',
-	        // 'The Office of the SEC General Counsel': '202-551-5100',
-	        // 'The Domestic Policy Council': '202-456-5594',
-	        // 'The Office of Public Engagement': '202-456-1097',
-	        // 'The Office of the Press Secretary': '202-456-3282',
-	        // 'The White House General Counsel': '202-456-2632',
-	        // 'The Office of Management and Budget': '202-395-4840',
-	        // 'White House Operations': '202-456-2500',
-	        // 'The Domestic Policy Council': '202-456-6515',
-	        // 'The Office of Administration': '202-456-2861',
-	        // 'The Council of Economic Advisers': '202-395-5084',
-	        // 'Hillary Clinton\'s Campaign': '646-854-1432',
-	        'Call the Senate:': '202-335-0610'
-	    },
-
-	    renderNumbers: function renderNumbers() {
-	        var numbers = [];
-
-	        for (var name in this.numbers) {
-	            var number = this.numbers[name];
-
-	            numbers.push(React.createElement(
-	                'div',
-	                { className: 'number' },
-	                React.createElement(
-	                    'div',
-	                    { className: 'name' },
-	                    name
-	                ),
-	                React.createElement(
-	                    'div',
-	                    { className: 'phone' },
-	                    React.createElement(
-	                        'a',
-	                        { href: 'tel:' + number },
-	                        number
-	                    )
-	                )
-	            ));
-	        }
-
-	        return numbers;
-	    },
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'opt-out-form' },
-	            React.createElement(
-	                'div',
-	                { className: 'script' },
-	                'Tell them:',
-	                React.createElement('div', { className: 'spacer' }),
-	                React.createElement(
-	                    'div',
-	                    { className: 'suggestion' },
-	                    '\u201CWith his cabinet nominations, Donald Trump is breaking his promises to be a president for all Americans and to make the economy work for ordinary people, not just wealthy elites.',
-	                    React.createElement('div', { className: 'spacer' }),
-	                    'Please fight to block and resist every Trump nominee who embraces hatred and Wall Street greed.',
-	                    React.createElement('div', { className: 'spacer' }),
-	                    'In particular, please vote AGAINST enemy of civil rights ',
-	                    React.createElement(
-	                        'strong',
-	                        null,
-	                        'Jeff Sessions'
-	                    ),
-	                    ' for Attorney General, foreclosure king ',
-	                    React.createElement(
-	                        'strong',
-	                        null,
-	                        'Steve Mnuchin'
-	                    ),
-	                    ' (mi-NOO-chin) for Treasury Secretary, and Wall Street billionaire ',
-	                    React.createElement(
-	                        'strong',
-	                        null,
-	                        'Wilbur Ross'
-	                    ),
-	                    ' for Commerce Secretary. Thank you."'
-	                )
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'numbers' },
-	                this.renderNumbers()
-	            )
-	        );
-	    }
-	});
-
 	var PhoneScript = React.createClass({
 	    displayName: 'PhoneScript',
 
@@ -1241,9 +643,15 @@
 	            React.createElement(
 	                'em',
 	                null,
-	                'We\u2019re calling you now. ',
+	                'We\u2019re calling you and will connect you to your senators. ',
 	                React.createElement('br', null),
-	                ' After the conversation, you can ',
+	                ' If you stay on the line we will keep connecting you to other key senators.'
+	            ),
+	            React.createElement('div', { className: 'spacer' }),
+	            React.createElement(
+	                'em',
+	                null,
+	                'After each conversation, you can ',
 	                React.createElement(
 	                    'strong',
 	                    null,
@@ -1251,7 +659,6 @@
 	                ),
 	                ' and we\u2019ll connect you to the next office.'
 	            ),
-	            React.createElement('div', { className: 'spacer' }),
 	            React.createElement(
 	                'em',
 	                null,
@@ -1261,29 +668,31 @@
 	            React.createElement(
 	                'div',
 	                { className: 'suggestion' },
-	                '\u201CWith his cabinet nominations, Donald Trump is breaking his promises to be a president for all Americans and to make the economy work for ordinary people, not just wealthy elites.',
-	                React.createElement('div', { className: 'spacer' }),
-	                'Please fight to block and resist every Trump nominee who embraces hatred and Wall Street greed.',
-	                React.createElement('div', { className: 'spacer' }),
-	                'In particular, please vote AGAINST enemy of civil rights ',
 	                React.createElement(
-	                    'strong',
+	                    'p',
 	                    null,
-	                    'Jeff Sessions'
+	                    '\u201C',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'Neil Gorsuch has consistently stood with corporations and other powerful interests against everyday Americans.'
+	                    )
 	                ),
-	                ' for Attorney General, foreclosure king ',
 	                React.createElement(
-	                    'strong',
+	                    'p',
 	                    null,
-	                    'Steve Mnuchin'
+	                    'Trump has launched rhetorical attacks on judges, is trying to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice. ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'Neil Gorsuch will make it even easier for Trump to implement this agenda.'
+	                    )
 	                ),
-	                ' (mi-NOO-chin) for Treasury Secretary, and Wall Street billionaire ',
 	                React.createElement(
-	                    'strong',
+	                    'p',
 	                    null,
-	                    'Wilbur Ross'
-	                ),
-	                ' for Commerce Secretary. Thank you."'
+	                    'Please vote against confirming Gorsuch."'
+	                )
 	            ),
 	            React.createElement('div', { className: 'spacer' }),
 	            React.createElement(
@@ -1293,279 +702,6 @@
 	                    'h3',
 	                    null,
 	                    'After your call(s), use the form to let us know how it went!'
-	                ),
-	                React.createElement(
-	                    'form',
-	                    { action: '#', method: 'get', className: this.state.sent ? 'sent' : false },
-	                    React.createElement(
-	                        'div',
-	                        { className: 'wrapper' },
-	                        React.createElement(
-	                            'h4',
-	                            null,
-	                            'Who did you speak with?'
-	                        ),
-	                        React.createElement('input', { required: 'required', type: 'text', name: 'Who did you speak with?', id: 'who' }),
-	                        React.createElement(
-	                            'h4',
-	                            null,
-	                            'How did it go?'
-	                        ),
-	                        React.createElement('input', { required: 'required', type: 'text', name: 'How did it go?', id: 'how' }),
-	                        React.createElement('br', null),
-	                        React.createElement(
-	                            'div',
-	                            { id: 'thanks' },
-	                            'Thank you!'
-	                        ),
-	                        React.createElement(
-	                            'button',
-	                            { onClick: this.onClickSendFeedback, type: 'submit', name: 'submit' },
-	                            'Send Feedback'
-	                        )
-	                    )
-	                )
-	            )
-	        );
-	    }
-	});
-
-	var StopSessionsPhoneScript = React.createClass({
-	    displayName: 'StopSessionsPhoneScript',
-
-	    onClickSendFeedback: function onClickSendFeedback(e) {
-	        e.preventDefault();
-
-	        var data = {
-	            campaign: config.callCampaignSessions,
-	            subject: 'Feedback from ' + (config.prettyCampaignNameSessions || config.callCampaignSessions),
-	            text: ''
-	        };
-
-	        var fields = [document.querySelector('#who'), document.querySelector('#how')];
-
-	        fields.forEach(function (field) {
-	            data.text += field.name + ':\n' + field.value + '\n\n';
-	        });
-
-	        var url = urls.feedback;
-
-	        for (var key in data) {
-	            url += key;
-	            url += '=';
-	            url += encodeURIComponent(data[key]);
-	            url += '&';
-	        }
-
-	        ajax.get(url);
-
-	        this.setState({
-	            sent: true
-	        });
-	    },
-
-	    getInitialState: function getInitialState() {
-	        return {
-	            sent: false
-	        };
-	    },
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'phone-script' },
-	            React.createElement(
-	                'em',
-	                null,
-	                'We\'re calling you now.'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'em',
-	                null,
-	                'First we will connect you to your own senators, and then we will connect you to other key senators who will help decide if Jeff Sessions becomes Attorney General.'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'em',
-	                null,
-	                'After each conversation, you can ',
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'press *'
-	                ),
-	                ' and we\u2019ll connect you to the next office. Each conversation you have will make us stronger and increase the chances we win this fight.'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'em',
-	                null,
-	                'Here\u2019s what you can say:'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'div',
-	                { className: 'suggestion' },
-	                '\u201CPlease publicly ',
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'OPPOSE Jeff Sessions for Attorney General.'
-	                ),
-	                ' His history is far too racist, sexist, and pro-corporate to trust him in charge of the Justice Department.',
-	                React.createElement('div', { className: 'spacer' }),
-	                'Additionally, please demand that Sessions answers ',
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'tough questions'
-	                ),
-	                ' during his hearing & insist on the ',
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'full 30 hours of debate'
-	                ),
-	                ' for his nomination.\u201D'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'div',
-	                { className: 'calling-wrapper' },
-	                React.createElement(
-	                    'h3',
-	                    null,
-	                    'After your call(s), use the form to let us know how it went and what you heard!'
-	                ),
-	                React.createElement(
-	                    'form',
-	                    { action: '#', method: 'get', className: this.state.sent ? 'sent' : false },
-	                    React.createElement(
-	                        'div',
-	                        { className: 'wrapper' },
-	                        React.createElement(
-	                            'h4',
-	                            null,
-	                            'Who did you speak with?'
-	                        ),
-	                        React.createElement('input', { required: 'required', type: 'text', name: 'Who did you speak with?', id: 'who' }),
-	                        React.createElement(
-	                            'h4',
-	                            null,
-	                            'How did it go?'
-	                        ),
-	                        React.createElement('input', { required: 'required', type: 'text', name: 'How did it go?', id: 'how' }),
-	                        React.createElement('br', null),
-	                        React.createElement(
-	                            'div',
-	                            { id: 'thanks' },
-	                            'Thank you!'
-	                        ),
-	                        React.createElement(
-	                            'button',
-	                            { onClick: this.onClickSendFeedback, type: 'submit', name: 'submit' },
-	                            'Send Feedback'
-	                        )
-	                    )
-	                )
-	            )
-	        );
-	    }
-	});
-
-	var BlockMnuchinPhoneScript = React.createClass({
-	    displayName: 'BlockMnuchinPhoneScript',
-
-	    onClickSendFeedback: function onClickSendFeedback(e) {
-	        e.preventDefault();
-
-	        var data = {
-	            campaign: config.callCampaignMnuchin,
-	            subject: 'Feedback from ' + (config.prettyCampaignNameMnuchin || config.callCampaignMnuchin),
-	            text: ''
-	        };
-
-	        var fields = [document.querySelector('#who'), document.querySelector('#how')];
-
-	        fields.forEach(function (field) {
-	            data.text += field.name + ':\n' + field.value + '\n\n';
-	        });
-
-	        var url = urls.feedback;
-
-	        for (var key in data) {
-	            url += key;
-	            url += '=';
-	            url += encodeURIComponent(data[key]);
-	            url += '&';
-	        }
-
-	        ajax.get(url);
-
-	        this.setState({
-	            sent: true
-	        });
-	    },
-
-	    getInitialState: function getInitialState() {
-	        return {
-	            sent: false
-	        };
-	    },
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'phone-script' },
-	            React.createElement(
-	                'em',
-	                null,
-	                'We\'re calling you now.'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'em',
-	                null,
-	                'First we will connect you to your own senators, and then we will connect you to other key senators who will help decide if Steve Mnuchin becomes Treasury Secretary.'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'em',
-	                null,
-	                'After each conversation, you can ',
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'press *'
-	                ),
-	                ' and we\u2019ll connect you to the next office. Each conversation you have will make us stronger and increase the chances we win this fight.'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'em',
-	                null,
-	                'Here\u2019s what you can say:'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'div',
-	                { className: 'suggestion' },
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    '\u201CPlease vote AGAINST making Steve Mnuchin (Mi-NEW-chin) the Treasury Secretary.'
-	                ),
-	                ' His history as a notorious \u201Cforeclosure king\u201D \u2014 who got rich at the expense of ordinary people \u2014 makes him unfit for such a critical position.'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'div',
-	                { className: 'calling-wrapper' },
-	                React.createElement(
-	                    'h3',
-	                    null,
-	                    'After your call(s), use the form to let us know how it went and what you heard!'
 	                ),
 	                React.createElement(
 	                    'form',
@@ -1621,32 +757,12 @@
 	    render: function render() {
 	        var form = void 0;
 	        switch (this.state.form) {
-	            case 'email':
-	                form = React.createElement(EmailForm, { changeForm: this.changeForm });
-	                break;
-
 	            case 'phone':
 	                form = React.createElement(PhoneForm, { changeForm: this.changeForm });
 	                break;
 
 	            case 'script':
 	                form = React.createElement(PhoneScript, null);
-	                break;
-
-	            case 'stopsessions':
-	                form = React.createElement(StopSessionsPhoneForm, { changeForm: this.changeForm });
-	                break;
-
-	            case 'scriptsessions':
-	                form = React.createElement(StopSessionsPhoneScript, null);
-	                break;
-
-	            case 'blockmnuchin':
-	                form = React.createElement(BlockMnuchinPhoneForm, { changeForm: this.changeForm });
-	                break;
-
-	            case 'scriptmnuchin':
-	                form = React.createElement(BlockMnuchinPhoneScript, null);
 	                break;
 
 	            case 'demophone':
@@ -1674,7 +790,7 @@
 	    },
 
 	    getInitialState: function getInitialState() {
-	        var form = 'email';
+	        var form = 'phone';
 
 	        if (state.query.call_tool) {
 	            form = 'phone';
@@ -1693,7 +809,7 @@
 	        }
 
 	        if ('embeddedConfiguration' in window) {
-	            form = embeddedConfiguration.phase || 'email';
+	            form = embeddedConfiguration.phase || 'phone';
 	        }
 
 	        return {
@@ -1759,131 +875,6 @@
 	                    'a',
 	                    { title: 'Americans for Tax Fairness Action Fund', href: 'http://atfactionfund.org/', target: '_blank' },
 	                    React.createElement('img', { src: 'images/logos/ATFAF.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Catholics in Alliance', href: 'http://www.catholicsinalliance.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/CatholicsInAlliance.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Courage Campaign', href: 'https://couragecampaign.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/Courage-Logo-Color-High-Rez.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'CPD Action', href: 'https://cpdaction.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/cpd-action-logo.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'CWA', href: 'http://www.cwa-union.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/CWA-blue-line.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Daily Kos', href: 'http://www.dailykos.com/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/dk_logo_400dpi_1024.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Rootstrikers', href: 'http://www.rootstrikers.org/#!/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/logo-rootstrikers-blacktext_900px.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Democracy for America', href: 'https://www.democracyforamerica.com/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/DFA_logo_bottom_200.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Free Press Action Fund', href: 'https://www.freepress.net/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/fp-actionfund.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Friends of the Earth', href: 'http://www.foe.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/FOE_logo_color.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Greenpeace', href: 'http://www.greenpeace.org/usa/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/Greenpeace-Logo.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Hedge Clippers', href: 'http://hedgeclippers.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/HedgeClippers.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'League of Conservation Votes', href: 'http://www.lcv.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/lcv_horizontal_url_large.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'MPower Change', href: 'https://mpowerchange.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/MPower Change Action v2.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'NYCC', href: 'http://nycommunities.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/ny-communities-for-change.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Other 98% Action', href: 'http://other98.com/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/o98-black-horizontal.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'People\'s Action', href: 'https://peoplesaction.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/PeoplesAction.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'People for the American Way', href: 'http://www.pfaw.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/pfaw-logo.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Presente Action', href: 'http://www.presente.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/PresenteActionLogo.jpeg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Public Citizen', href: 'http://www.citizen.org/Page.aspx?pid=183', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/publiccitizen.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'RootsAction', href: 'http://rootsaction.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/RootsAction_transparent300.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'SumOfUs', href: 'https://www.sumofus.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/SumOfUs_horiz-logo-color.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'The Nation', href: 'https://www.thenation.com/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/NewNationLogo07.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'UltraViolet', href: 'https://weareultraviolet.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/ultraviolet.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Win Without War', href: 'http://winwithoutwar.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/WWW Logo_Stacked_Color_LARGE-1.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Working Families Party', href: 'http://workingfamilies.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/wfp.jpg' })
 	                )
 	            )
 	        )
@@ -2050,241 +1041,6 @@
 	        window.open(url);
 	    }
 	});
-
-	var BodyCopy = function BodyCopy() {
-	    return React.createElement(
-	        'div',
-	        { className: 'paragraph' },
-	        React.createElement('hr', null),
-	        'Trump rose to power with a divisive campaign that showed he was willing to embrace every fringe ideology from xenophobia to sexism to flat-out racism in order to gain power.',
-	        React.createElement(
-	            'h3',
-	            null,
-	            'Trump\u2019s Broken Promises'
-	        ),
-	        'Trump promised on election night to be \u201Ca president for all Americans.\u201D But the parade of horribles that Trump has nominated to his administration show he is welcoming hate right into the White House.',
-	        React.createElement('div', { className: 'spacer' }),
-	        'And his pledge during the campaign to \u201Cdrain the swamp\u201D and make Washington work for ordinary Americans instead of powerful elites? Forget about it. Trump\u2019s cabinet is so pro-corporate it\u2019s called \u201Can investment banker\u2019s dream.\u201D',
-	        React.createElement('div', { className: 'spacer' }),
-	        React.createElement(
-	            'h3',
-	            null,
-	            'Who the Trump Cabinet Really Works For'
-	        ),
-	        'Wall Street bankers and Trump\u2019s corporate cronies are cheering the Trump agenda. It\u2019s a corporate wish list that would eliminate protections for working people and our environment, and eviscerate strong rules reining in Wall Street.',
-	        React.createElement('div', { className: 'spacer' }),
-	        'The Trump administration is shaping up to benefit Donald Trump and his family\u2019s business empire in a big way, with massive conflicts of interest posed by Trump\u2019s continued stake in the Trump Organization.',
-	        React.createElement('div', { className: 'spacer' }),
-	        React.createElement(
-	            'h3',
-	            null,
-	            'The Senate Must Block and Resist Trump\'s Cabinet'
-	        ),
-	        'The U.S. Senate has confirmation power over most of Trump\'s cabinet. Senators must use this power to block and resist Trump\u2019s cabinet of hate and greed. Consider who we\u2019re talking about:',
-	        React.createElement('div', { className: 'spacer' }),
-	        React.createElement(
-	            'div',
-	            { className: 'profiles' },
-	            React.createElement(
-	                'div',
-	                { className: 'profile' },
-	                React.createElement('img', { src: 'images/profiles/Jeff_Sessions.jpg', alt: 'Jeff Sessions photo' }),
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'Enemy of civil rights and women\'s rights Jeff Sessions (Attorney General)'
-	                ),
-	                ' \u2014 The same Jeff Sessions who was deemed too racist to confirm to a federal judgeship by a Republican Judiciary Committee in 1986 would be in charge of the Department of Justice. If confirmed, he would be responsible for enforcing the country\u2019s civil rights laws, despite ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.cnn.com/2016/11/17/politics/jeff-sessions-racism-allegations/index.html', target: '_blank' },
-	                    'a history'
-	                ),
-	                ' of calling a black subordinate "boy," "joking" about supporting the Ku Klux Klan, and calling the ACLU and NAACP "un-American." His anti-woman record speaks for itself: He said ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.weeklystandard.com/jeff-sessions-behavior-described-by-trump-in-grab-them-by-the-p-y-tape-isnt-sexual-assault/article/2004799?custom_click=rss', target: '_blank' },
-	                    ' "I don\'t characterize" grabbing women by the genitals "as sexual assault,"'
-	                ),
-	                ' voted ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'https://www.govtrack.us/congress/votes/113-2013/s19', target: '_blank' },
-	                    'against reauthorizing the Violence Against Women Act'
-	                ),
-	                ' and ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=113&session=2&vote=00059', target: '_blank' },
-	                    'against bipartisan legislation to curb sexual assault'
-	                ),
-	                ' in the military ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=114&session=1&vote=00211' },
-	                    '\u2013 twice.'
-	                )
-	            ),
-	            React.createElement('div', { className: 'spacer clear' }),
-	            React.createElement(
-	                'div',
-	                { className: 'profile' },
-	                React.createElement('img', { src: 'images/profiles/Mnuchin.jpg', alt: 'Steve Mnuchin photo' }),
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'Foreclosure king Steve Mnuchin (Treasury Secretary)'
-	                ),
-	                ' \u2014 Steve Mnuchin is an ultra-wealthy former Goldman Sachs executive who got rich at the expense of working Americans. He ran a bank called a "foreclosure machine" that kicked people out of their houses, ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://prospect.org/article/steve-mnuchin-evictor-forecloser-and-our-new-treasury-secretary', target: '_blank' },
-	                    'using techniques so coldblooded'
-	                ),
-	                ' a federal judge called them \u201Charsh, repugnant, shocking and repulsive,\u201D ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.bloomberg.com/politics/articles/2016-11-22/trump-treasury-contender-mnuchin-found-profits-in-mortgage-mess', target: '_blank' },
-	                    'foreclosing on more than 36,000 homes.'
-	                ),
-	                ' He and his family pocketed $3.2 million in ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.bloomberg.com/politics/articles/2016-05-06/trump-s-new-finance-chairman-was-sued-over-madoff-fraud-profit', target: '_blank' },
-	                    'fake profits from notorious Ponzi scheme fraudster Bernie Madoff.'
-	                ),
-	                ' Mnuchin will run the Treasury Department to benefit Wall Street, saying his ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.politico.com/blogs/donald-trump-administration/2016/11/dodd-frank-targeted-mnuchin-231994', target: '_blank' },
-	                    '\u201Cnumber one priority on the regulatory side" is attacking Dodd-Frank Wall Street reforms reining in big banks.'
-	                )
-	            ),
-	            React.createElement('div', { className: 'spacer clear' }),
-	            React.createElement(
-	                'div',
-	                { className: 'profile' },
-	                React.createElement('img', { src: 'images/profiles/Tillerson.jpg', alt: 'Rex Tillerson photo' }),
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'Big Oil crony Rex Tillerson (Secretary of State)'
-	                ),
-	                ' \u2014 As CEO of Exxon, Tillerson has specialized in ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.usatoday.com/story/opinion/2016/12/13/tillerson-trump-secretary-state-russia-oil-column/95371462/', target: '_blank' },
-	                    'partnering with dictators and human rights abusers'
-	                ),
-	                ' from Equatorial Guinea to Qatar to Kazakhstan. But his closest ties are with Russia, where after billions of dollars in oil deals Vladimir Putin awarded Tillerson ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://money.cnn.com/2016/12/11/investing/rex-tillerson-exxon-russia-putin/index.html', target: '_blank' },
-	                    'Russia\'s Order of Friendship.'
-	                ),
-	                ' Exxon even complained international sanctions against Russia cost the company $1 billion. Under Tillerson\'s leadership, Exxon has ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.latimes.com/business/la-fi-exxon-global-warming-20160120-story.html', target: '_blank' },
-	                    'faced securities fraud investigations'
-	                ),
-	                ' for lying to investors and funding climate deniers decades after it knew the truth about climate change.'
-	            ),
-	            React.createElement('div', { className: 'spacer clear' }),
-	            React.createElement(
-	                'div',
-	                { className: 'profile' },
-	                React.createElement('img', { src: 'images/profiles/WilburRoss.jpg', alt: 'Wilbur Ross photo' }),
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'Wall Street billionaire Wilbur Ross (Secretary of Commerce)'
-	                ),
-	                ' \u2014 Trump\'s pick for Secretary of Commerce, Wilbur Ross, is a Wall Street billionaire who made his money as a notorious "vulture investor." The so-called "king of bankruptcy," ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.thedailybeast.com/articles/2016/11/17/could-this-man-be-donald-trump-s-future-secretary-of-outsourcing.html', target: '_blank' },
-	                    'he offshored American textile jobs to China and Mexico'
-	                ),
-	                ' and ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.huffingtonpost.com/entry/trump-wilbur-ross_us_582b4c04e4b01d8a014abacb', target: '_blank' },
-	                    '12 coal workers controversially died at his mine in West Virginia.'
-	                ),
-	                ' But he complains that ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.huffingtonpost.com/entry/trump-wilbur-ross_us_582b4c04e4b01d8a014abacb', target: '_blank' },
-	                    '\u201Cthe 1 percent is being picked on for political reasons.\u201D'
-	                ),
-	                ' Ross bailed out Donald Trump\'s failing casinos in Atlantic City, ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.nytimes.com/2016/11/25/business/dealbook/wilbur-ross-commerce-secretary-donald-trump.html?ref=business&_r=0', target: '_blank' },
-	                    'buying himself a seat in Trump\'s crony cabinet.'
-	                )
-	            ),
-	            React.createElement('div', { className: 'spacer clear' }),
-	            React.createElement(
-	                'div',
-	                { className: 'profile' },
-	                React.createElement('img', { src: 'images/profiles/Pruitt.jpg', alt: 'Scott Pruitt photo' }),
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'Climate science denier Scott Pruitt (EPA Administrator)'
-	                ),
-	                ' \u2014 Scott Pruitt is a notorious shill for the polluting fossil fuel industry \u2013 ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.followthemoney.org/show-me?d-cci=36%2C33&c-t-eid=6583668&d-ccb=95%2C98%2C97#[%7B1%7Cgro=y', target: '_blank' },
-	                    'which has given him more than $300,000 since 2002.'
-	                ),
-	                ' Pruitt ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://www.cnn.com/2016/12/07/politics/trump-picks-scott-pruitt-to-head-epa/index.html', target: '_blank' },
-	                    'erroneously claims climate change is \u201Cfar from settled\u201D among scientists'
-	                ),
-	                ' and brags he has ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'https://www.linkedin.com/in/e-scott-pruitt-3b771653', target: '_blank' },
-	                    '\u201Cled the charge\u2026 against the U.S. Environmental Protection Agency.\u201D'
-	                ),
-	                ' As Oklahoma Attorney General, he has ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'http://thehill.com/policy/energy-environment/309373-trump-confirms-epa-pick', target: '_blank' },
-	                    'repeatedly sued the EPA'
-	                ),
-	                ' to attack the Clean Power Plan and Clean Water Rule, ',
-	                React.createElement(
-	                    'a',
-	                    { href: 'https://www.nytimes.com/2014/12/07/us/politics/energy-firms-in-secretive-alliance-with-attorneys-general.html?_r=0&smid=tw-share', target: '_blank' },
-	                    'even passing off as his own'
-	                ),
-	                ' a letter criticizing the EPA written and delivered to him by a big oil company\u2019s top lobbyist.'
-	            ),
-	            React.createElement('div', { className: 'spacer clear' })
-	        ),
-	        'The Senate will be narrowly divided 52-48 between Republicans and Democrats in 2017 and many key Senate committees will be split 10-9 or 11-10. ',
-	        React.createElement(
-	            'strong',
-	            null,
-	            'If Democrats stick together it could only take one or two principled Republican votes to block many of Trump\u2019s nominees.'
-	        ),
-	        React.createElement('div', { className: 'spacer' }),
-	        'Donald Trump may have won the Electoral College, but members of the U.S. Senate should not give any support to Trump appointees espousing racism, xenophobia, misogyny, homophobia, climate denial, and corporate greed.',
-	        React.createElement('div', { className: 'spacer' }),
-	        React.createElement(
-	            'a',
-	            { href: '#petition', className: 'sign-the-petition' },
-	            'Sign the petition if you agree.'
-	        )
-	    );
-	};
 
 	var CallPages = React.createClass({
 	    displayName: 'CallPages',

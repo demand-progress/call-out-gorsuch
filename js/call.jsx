@@ -4,7 +4,7 @@ config.akPage = 'block-trumps-cabinet-www';
 config.callCampaign = 'block-trumps-cabinet';
 config.callCampaignSessions = 'block-trumps-cabinet-stop-sessions';
 config.callCampaignMnuchin = 'block-trumps-cabinet-block-mnuchin';
-config.link = 'https://BlockTrumpsCabinet.com/';
+config.link = 'https://http://calloutgorsuch.com/';
 config.prettyCampaignName = 'Block Trump\'s Cabinet';
 config.prettyCampaignNameSessions = 'Block Trump\'s Cabinet - Stop Sessions';
 config.prettyCampaignNameMnuchin = 'Block Trump\'s Cabinet - Stop Mnuchin';
@@ -376,7 +376,7 @@ const StopSessionsPhoneForm = React.createClass({
                 <div className="phone-form-wrapper stop-sessions">
                     <div className="paragraph">
                         <strong>
-                        Hearings on Trump's appointment of Jeff Sessions to be Attorney General have already begun.
+                        Hearings on Trump&#039;s appointment of Jeff Sessions to be Attorney General have already begun.
                         <br />
                         <br />
                         Senate Democrats need to get their backbones and block the appointment of this authoritarian, corporatist, racist, and sexist to run our law enforcement apparatus.
@@ -419,7 +419,7 @@ const StopSessionsPhoneForm = React.createClass({
                         <li>characterized the Voting Rights Act as "a piece of intrusive legislation” and has refused to support legislation to restore it after it was gutted by the Supreme Court</li>
                         <li>stood up for the banking industry when the banks were melting down in 2008</li>
                         <li>pressured Attorney General Janet Reno not to pursue anti-trust charges against Microsoft in the 1990s</li>
-                        <li>and defended Donald Trump’s recorded bragging about grabbing women by their genitals by saying, “I don't characterize that as sexual assault."</li>
+                        <li>and defended Donald Trump’s recorded bragging about grabbing women by their genitals by saying, &ldquo;I don&#039;t characterize that as sexual assault.&quot;</li>
                     </ul>
                 </div>
 
@@ -470,7 +470,7 @@ const BlockMnuchinPhoneForm = React.createClass({
             <div className="stop-sessions-wrapper">
                 <div className="phone-form-wrapper stop-sessions block-mnuchin">
                     <div className="paragraph">
-                        <strong>Tell the Senate: Reject Trump's appointment of notorious "foreclosure king" Steve Mnuchin to be Treasury Secretary.</strong>
+                        <strong>Tell the Senate: Reject Trump&#039;s appointment of notorious &quot;foreclosure king&quot; Steve Mnuchin to be Treasury Secretary.</strong>
                         <br />
                         <br />
                         Enter your phone number to be connected with the Senate.
@@ -582,7 +582,7 @@ const DemoPhoneForm = React.createClass({
                 <div className="paragraph" >
                     <hr />
                     <h3>Why do we need to lorem ipsum?</h3>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
                     <br />
                     <br />
                     <ul>
@@ -755,11 +755,11 @@ const OptOutForm = React.createClass({
                     Tell them:
                     <div className="spacer" />
                     <div className="suggestion">
-                        “With his cabinet nominations, Donald Trump is breaking his promises to be a president for all Americans and to make the economy work for ordinary people, not just wealthy elites.
+                        &ldquo;With his cabinet nominations, Donald Trump is breaking his promises to be a president for all Americans and to make the economy work for ordinary people, not just wealthy elites.
                         <div className="spacer" />
                         Please fight to block and resist every Trump nominee who embraces hatred and Wall Street greed.
                         <div className="spacer" />
-                        In particular, please vote AGAINST enemy of civil rights <strong>Jeff Sessions</strong> for Attorney General, foreclosure king <strong>Steve Mnuchin</strong> (mi-NOO-chin) for Treasury Secretary, and Wall Street billionaire <strong>Wilbur Ross</strong> for Commerce Secretary. Thank you."
+                        In particular, please vote AGAINST enemy of civil rights <strong>Jeff Sessions</strong> for Attorney General, foreclosure king <strong>Steve Mnuchin</strong> (mi-NOO-chin) for Treasury Secretary, and Wall Street billionaire <strong>Wilbur Ross</strong> for Commerce Secretary. Thank you.&quot;
                     </div>
                 </div>
 
@@ -822,11 +822,11 @@ const PhoneScript = React.createClass({
                 <div className="spacer" />
 
                 <div className="suggestion">
-                    “With his cabinet nominations, Donald Trump is breaking his promises to be a president for all Americans and to make the economy work for ordinary people, not just wealthy elites.
+                    &ldquo;With his cabinet nominations, Donald Trump is breaking his promises to be a president for all Americans and to make the economy work for ordinary people, not just wealthy elites.
                     <div className="spacer" />
                     Please fight to block and resist every Trump nominee who embraces hatred and Wall Street greed.
                     <div className="spacer" />
-                    In particular, please vote AGAINST enemy of civil rights <strong>Jeff Sessions</strong> for Attorney General, foreclosure king <strong>Steve Mnuchin</strong> (mi-NOO-chin) for Treasury Secretary, and Wall Street billionaire <strong>Wilbur Ross</strong> for Commerce Secretary. Thank you."
+                    In particular, please vote AGAINST enemy of civil rights <strong>Jeff Sessions</strong> for Attorney General, foreclosure king <strong>Steve Mnuchin</strong> (mi-NOO-chin) for Treasury Secretary, and Wall Street billionaire <strong>Wilbur Ross</strong> for Commerce Secretary. Thank you.&quot;
                 </div>
                 <div className="spacer" />
 
@@ -893,7 +893,7 @@ const StopSessionsPhoneScript = React.createClass({
     render: function() {
         return (
             <div className="phone-script">
-                <em>We're calling you now.</em>
+                <em>We&#039;re calling you now.</em>
                 <div className="spacer" />
                 <em>First we will connect you to your own senators, and then we will connect you to other key senators who will help decide if Jeff Sessions becomes Attorney General.</em>
                 <div className="spacer" />
@@ -974,7 +974,7 @@ const BlockMnuchinPhoneScript = React.createClass({
     render: function() {
         return (
             <div className="phone-script">
-                <em>We're calling you now.</em>
+                <em>We&#039;re calling you now.</em>
                 <div className="spacer" />
                 <em>First we will connect you to your own senators, and then we will connect you to other key senators who will help decide if Steve Mnuchin becomes Treasury Secretary.</em>
                 <div className="spacer" />
@@ -1267,7 +1267,7 @@ const BodyCopy = () => (
         <div className="profiles">
             <div className="profile">
                 <img src="images/profiles/Jeff_Sessions.jpg" alt="Jeff Sessions photo" />
-                <strong>Enemy of civil rights and women's rights Jeff Sessions (Attorney General)</strong> &mdash; The same Jeff Sessions who was deemed too racist to confirm to a federal judgeship by a Republican Judiciary Committee in 1986 would be in charge of the Department of Justice. If confirmed, he would be responsible for enforcing the country’s civil rights laws, despite <a href="http://www.cnn.com/2016/11/17/politics/jeff-sessions-racism-allegations/index.html" target="_blank">a history</a> of calling a black subordinate "boy," "joking" about supporting the Ku Klux Klan, and calling the ACLU and NAACP "un-American." His anti-woman record speaks for itself: He said <a href="http://www.weeklystandard.com/jeff-sessions-behavior-described-by-trump-in-grab-them-by-the-p-y-tape-isnt-sexual-assault/article/2004799?custom_click=rss" target="_blank"> "I don't characterize" grabbing women by the genitals "as sexual assault,"</a> voted <a href="https://www.govtrack.us/congress/votes/113-2013/s19" target="_blank">against reauthorizing the Violence Against Women Act</a> and <a href="http://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=113&session=2&vote=00059" target="_blank">against bipartisan legislation to curb sexual assault</a> in the military <a href="http://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=114&session=1&vote=00211">&ndash; twice.</a>
+                <strong>Enemy of civil rights and women&#039;s rights Jeff Sessions (Attorney General)</strong> &mdash; The same Jeff Sessions who was deemed too racist to confirm to a federal judgeship by a Republican Judiciary Committee in 1986 would be in charge of the Department of Justice. If confirmed, he would be responsible for enforcing the country’s civil rights laws, despite <a href="http://www.cnn.com/2016/11/17/politics/jeff-sessions-racism-allegations/index.html" target="_blank">a history</a> of calling a black subordinate "boy," "joking" about supporting the Ku Klux Klan, and calling the ACLU and NAACP "un-American." His anti-woman record speaks for itself: He said <a href="http://www.weeklystandard.com/jeff-sessions-behavior-described-by-trump-in-grab-them-by-the-p-y-tape-isnt-sexual-assault/article/2004799?custom_click=rss" target="_blank"> "I don't characterize" grabbing women by the genitals "as sexual assault,"</a> voted <a href="https://www.govtrack.us/congress/votes/113-2013/s19" target="_blank">against reauthorizing the Violence Against Women Act</a> and <a href="http://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=113&session=2&vote=00059" target="_blank">against bipartisan legislation to curb sexual assault</a> in the military <a href="http://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=114&session=1&vote=00211">&ndash; twice.</a>
             </div>
             <div className="spacer clear" />
 
@@ -1291,7 +1291,7 @@ const BodyCopy = () => (
 
             <div className="profile">
                 <img src="images/profiles/Pruitt.jpg" alt="Scott Pruitt photo" />
-                <strong>Climate science denier Scott Pruitt (EPA Administrator)</strong> &mdash; Scott Pruitt is a notorious shill for the polluting fossil fuel industry – <a href="http://www.followthemoney.org/show-me?d-cci=36%2C33&c-t-eid=6583668&d-ccb=95%2C98%2C97#[%7B1%7Cgro=y" target="_blank">which has given him more than $300,000 since 2002.</a> Pruitt <a href="http://www.cnn.com/2016/12/07/politics/trump-picks-scott-pruitt-to-head-epa/index.html" target="_blank">erroneously claims climate change is “far from settled” among scientists</a> and brags he has <a href="https://www.linkedin.com/in/e-scott-pruitt-3b771653" target="_blank">“led the charge… against the U.S. Environmental Protection Agency.”</a> As Oklahoma Attorney General, he has <a href="http://thehill.com/policy/energy-environment/309373-trump-confirms-epa-pick" target="_blank">repeatedly sued the EPA</a> to attack the Clean Power Plan and Clean Water Rule, <a href="https://www.nytimes.com/2014/12/07/us/politics/energy-firms-in-secretive-alliance-with-attorneys-general.html?_r=0&smid=tw-share" target="_blank">even passing off as his own</a> a letter criticizing the EPA written and delivered to him by a big oil company’s top lobbyist.
+                <strong>Climate science denier Scott Pruitt (EPA Administrator)</strong> &mdash; Scott Pruitt is a notorious shill for the polluting fossil fuel industry – <a href="http://www.followthemoney.org/show-me?d-cci=36%2C33&c-t-eid=6583668&d-ccb=95%2C98%2C97#[%7B1%7Cgro=y" target="_blank">which has given him more than $300,000 since 2002.</a> Pruitt <a href="http://www.cnn.com/2016/12/07/politics/trump-picks-scott-pruitt-to-head-epa/index.html" target="_blank">erroneously claims climate change is &ldquo;far from settled&rdquo; among scientists</a> and brags he has <a href="https://www.linkedin.com/in/e-scott-pruitt-3b771653" target="_blank">“led the charge… against the U.S. Environmental Protection Agency.”</a> As Oklahoma Attorney General, he has <a href="http://thehill.com/policy/energy-environment/309373-trump-confirms-epa-pick" target="_blank">repeatedly sued the EPA</a> to attack the Clean Power Plan and Clean Water Rule, <a href="https://www.nytimes.com/2014/12/07/us/politics/energy-firms-in-secretive-alliance-with-attorneys-general.html?_r=0&smid=tw-share" target="_blank">even passing off as his own</a> a letter criticizing the EPA written and delivered to him by a big oil company’s top lobbyist.
             </div>
             <div className="spacer clear" />
         </div>

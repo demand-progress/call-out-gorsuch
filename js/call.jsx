@@ -3,7 +3,7 @@ const config = {};
 config.akPage = 'call-out-gorsuch-www';
 config.callCampaign = 'call-out-gorsuch';
 config.link = 'https://calloutgorsuch.com/';
-config.prettyCampaignName = "Oppose Trump's takeover of Supreme Court";
+config.prettyCampaignName = "Oppose Trump's takeover of the Supreme Court";
 
 // Modules
 const React = require('react');

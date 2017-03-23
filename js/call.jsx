@@ -218,7 +218,7 @@ const PhoneForm = React.createClass({
                 </div>
                 <div className="bottom-cta">
                     <form className="phone-form" onSubmit={ this.onSubmit }>
-                        <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
+                        <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" />
                         <button className="blue-cta">
                             <img src="images/phone.svg" />
                             Call the Senate
@@ -605,8 +605,7 @@ const Social = React.createClass({
                 <div className="share">
                     <a onClick={this.onClickTwitter} target="_blank" href="#Share on Twitter" className="twitter">Tweet</a>
                     <a onClick={this.onClickFacebook} target="_blank" href="#Share on Facebook" className="facebook">Share</a>
-                    <a href={emailHref}
-                        target="_blank" className="email">Email</a>
+                    <a href={emailHref} className="email">Email</a>
                 </div>
             </div>
         );

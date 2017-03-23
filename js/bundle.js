@@ -363,7 +363,7 @@
 	                React.createElement(
 	                    'form',
 	                    { className: 'phone-form', onSubmit: this.onSubmit },
-	                    React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone', ref: 'field-phone', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*', autoFocus: true }),
+	                    React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone', ref: 'field-phone', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*' }),
 	                    React.createElement(
 	                        'button',
 	                        { className: 'blue-cta' },
@@ -965,8 +965,7 @@
 	                ),
 	                React.createElement(
 	                    'a',
-	                    { href: emailHref,
-	                        target: '_blank', className: 'email' },
+	                    { href: emailHref, className: 'email' },
 	                    'Email'
 	                )
 	            )

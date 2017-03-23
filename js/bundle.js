@@ -847,35 +847,6 @@
 	                    { title: 'Demand Progress', href: 'https://demandprogress.org', target: '_blank' },
 	                    React.createElement('img', { src: 'images/logos/demandprogress-logo-new-stacked.png' })
 	                )
-	            ),
-	            React.createElement(
-	                'h4',
-	                null,
-	                'In partnership with'
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'smaller' },
-	                React.createElement(
-	                    'a',
-	                    { title: '18 Million Rising', href: 'http://18millionrising.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/18mr_logo_short.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: '350.org', href: 'https://350.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/350-logo-org.png' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'American Family Voices', href: 'http://www.americanfamilyvoices.org', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/afv.jpg' })
-	                ),
-	                React.createElement(
-	                    'a',
-	                    { title: 'Americans for Tax Fairness Action Fund', href: 'http://atfactionfund.org/', target: '_blank' },
-	                    React.createElement('img', { src: 'images/logos/ATFAF.png' })
-	                )
 	            )
 	        )
 	    );

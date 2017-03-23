@@ -572,14 +572,6 @@ const Organizations = () => (
             <div className="larger">
                 <a title="Demand Progress" href="https://demandprogress.org" target="_blank"><img src="images/logos/demandprogress-logo-new-stacked.png" /></a>
             </div>
-
-            <h4>In partnership with</h4>
-            <div className="smaller">
-                <a title="18 Million Rising" href="http://18millionrising.org/" target="_blank"><img src="images/logos/18mr_logo_short.png" /></a>
-                <a title="350.org" href="https://350.org/" target="_blank"><img src="images/logos/350-logo-org.png" /></a>
-                <a title="American Family Voices" href="http://www.americanfamilyvoices.org" target="_blank"><img src="images/logos/afv.jpg" /></a>
-                <a title="Americans for Tax Fairness Action Fund" href="http://atfactionfund.org/" target="_blank"><img src="images/logos/ATFAF.png" /></a>
-            </div>
         </div>
     </div>
 );

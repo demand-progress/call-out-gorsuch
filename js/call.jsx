@@ -195,7 +195,7 @@ const PhoneForm = React.createClass({
                         <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
                         <button className="blue-cta">
                             <img src="images/phone.svg" />
-                            Call the senate
+                            Call the Senate
                         </button>
                     </form>
 
@@ -221,7 +221,7 @@ const PhoneForm = React.createClass({
                         <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
                         <button className="blue-cta">
                             <img src="images/phone.svg" />
-                            CALL THE SENATE
+                            Call the Senate
                         </button>
                     </form>
                 </div>

@@ -666,6 +666,131 @@ header h1 {
     padding: 0 0 32px;
 }
 
+.phone-form {
+    text-align: center;
+}
+
+@media (max-width: 320px) {
+    .top-cta {
+        padding: 40px 20px;
+        margin: 0 5px 32px 5px;
+    }
+
+    .top-cta p {
+        font-size: 18px;
+    }
+
+    #app .wrapper > header {
+        height: 550px;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    header h4 {
+        font-size: 24px;
+    }
+
+    #app .title {
+        padding: 50px 30px 0 30px;
+    }
+
+    .phone-form input {
+        height: 48px;
+        line-height: 48px;
+        font-size: 18px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .phone-form .blue-cta {
+        height: 48px;
+        line-height: 48px;
+        font-size: 18px;
+    }
+
+    .copy {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .top-cta {
+        padding: 40px 20px;
+        margin: 0 5px 32px 5px;
+    }
+
+    .top-cta p {
+        font-size: 18px;
+    }
+
+    #app .wrapper > header {
+        height: 550px;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    header h4 {
+        font-size: 24px;
+    }
+
+    #app .title {
+        padding: 50px 30px 0 30px;
+    }
+
+    .phone-form input {
+        height: 48px;
+        line-height: 48px;
+        font-size: 18px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .phone-form .blue-cta {
+        height: 48px;
+        line-height: 48px;
+        font-size: 18px;
+    }
+
+    .copy {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 414px) {
+    .bottom-cta .phone-form {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .top-cta {
+        padding: 40px 20px;
+        margin: 0 5px 32px 5px;
+    }
+
+    .top-cta p {
+        font-size: 18px;
+    }
+    .copy {
+        padding: 0 20px;
+    }
+    .phone-form input {
+        height: 48px;
+        line-height: 48px;
+        font-size: 18px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .phone-form .blue-cta {
+        height: 48px;
+        line-height: 48px;
+        font-size: 18px;
+    }
+}
+
 @media (max-width: 460px) {
     #app .email-form form input {
         border-bottom: 1px solid #ccc;

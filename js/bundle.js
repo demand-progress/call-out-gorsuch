@@ -271,7 +271,7 @@
 	                        'button',
 	                        { className: 'blue-cta' },
 	                        React.createElement('img', { src: 'images/phone.svg' }),
-	                        'Call the senate'
+	                        'Call the Senate'
 	                    )
 	                ),
 	                React.createElement(
@@ -368,7 +368,7 @@
 	                        'button',
 	                        { className: 'blue-cta' },
 	                        React.createElement('img', { src: 'images/phone.svg' }),
-	                        'CALL THE SENATE'
+	                        'Call the Senate'
 	                    )
 	                )
 	            ),

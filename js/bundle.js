@@ -225,18 +225,15 @@
 	            'div',
 	            { className: 'title' },
 	            React.createElement(
-	                'span',
-	                { className: 'first-line' },
-	                'Tell the Senate:'
+	                'h4',
+	                null,
+	                'Tell the Senate'
 	            ),
-	            React.createElement('br', null),
-	            'Oppose Trump\'s takeover ',
 	            React.createElement(
-	                'span',
-	                { className: 'single-word' },
-	                'of'
-	            ),
-	            ' the Supreme Court'
+	                'h1',
+	                null,
+	                'Oppose Trump\'s takeover of the Supreme Court'
+	            )
 	        )
 	    );
 	};
@@ -251,68 +248,144 @@
 	    render: function render() {
 	        return React.createElement(
 	            'div',
-	            { className: 'phone-form-wrapper' },
-	            React.createElement(
-	                'p',
-	                null,
-	                'Neil Gorsuch is Donald Trump\'s Supreme Court nominee -- and he is even more conservative than Antonin Scalia was. Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.'
-	            ),
-	            React.createElement(
-	                'p',
-	                null,
-	                'Gorsuch has a long history of siding with powerful interests over everyday Americans.  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice we simply cannot afford to let the court shift to the far right. '
-	            ),
-	            React.createElement(
-	                'h3',
-	                null,
-	                'The Senate Must Block and Resist Trump\'s Supreme Court'
-	            ),
-	            React.createElement(
-	                'p',
-	                null,
-	                'The Senate will be voting on Gorsuch soon -- we need you to call your senators now and tell them to vote no.'
-	            ),
+	            { className: 'wrapper' },
 	            React.createElement(
 	                'div',
-	                { className: 'phone-form' },
+	                { className: 'top-cta' },
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    'The Senate will be voting on Gorsuch soon -- we need you to ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'call your senators now and tell them to vote no'
+	                    ),
+	                    '.'
+	                ),
 	                React.createElement(
 	                    'form',
-	                    { onSubmit: this.onSubmit },
+	                    { onSubmit: this.onSubmit, className: 'phone-form' },
 	                    React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone', ref: 'field-phone', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*', autoFocus: true }),
 	                    React.createElement(
 	                        'button',
-	                        null,
-	                        'CALL THE SENATE',
-	                        React.createElement('img', { src: 'images/phone.svg' })
+	                        { className: 'blue-cta' },
+	                        React.createElement('img', { src: 'images/phone.svg' }),
+	                        'Call the senate'
 	                    )
 	                ),
 	                React.createElement(
 	                    'div',
 	                    { className: 'privacy' },
-	                    'This tool uses ',
-	                    React.createElement(
-	                        'a',
-	                        { href: 'https://www.twilio.com/legal/privacy', target: '_blank' },
-	                        'Twilio'
-	                    ),
-	                    '\u2019s APIs.',
-	                    React.createElement('br', null),
 	                    'Or dial ',
 	                    React.createElement(
 	                        'a',
 	                        { href: 'tel:+12023350610' },
 	                        '(202) 335-0610'
 	                    ),
-	                    ' to connect.'
+	                    ' to connect.',
+	                    React.createElement('br', null),
+	                    'This tool uses ',
+	                    React.createElement(
+	                        'a',
+	                        { href: 'https://www.twilio.com/legal/privacy', target: '_blank' },
+	                        'Twilio'
+	                    ),
+	                    '\u2019s APIs.'
 	                )
 	            ),
 	            React.createElement(
 	                'div',
-	                { className: 'paragraph' },
-	                'Just enter your number and click \u201Ccall\u201D',
-	                React.createElement('br', null),
-	                React.createElement('br', null),
-	                'We\u2019ll connect you with your senators and key party leaders, and give you a script of what you can say.'
+	                { className: 'copy' },
+	                React.createElement(
+	                    'h2',
+	                    null,
+	                    'YOU CAN SAVE THE SUPREME COURT'
+	                ),
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    'Neil Gorsuch is Donald Trump\'s Supreme Court nominee -- ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'and he is even more conservative than Antonin Scalia was.'
+	                    ),
+	                    'Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.'
+	                ),
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'Gorsuch has a long history of siding with powerful interests over everyday Americans.'
+	                    ),
+	                    '  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'we simply cannot afford to let the court shift to the far right.'
+	                    ),
+	                    ' '
+	                ),
+	                React.createElement(
+	                    'h2',
+	                    null,
+	                    'DON\u2019T WORRY: CALLING IS ',
+	                    React.createElement(
+	                        'span',
+	                        null,
+	                        'EASY'
+	                    )
+	                ),
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    'The Senate ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'must block and resist'
+	                    ),
+	                    ' Trump\'s Supreme Court: We\u2019ll connect you with your senators and key party leaders, and ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'give you a script of what you can say'
+	                    ),
+	                    '.'
+	                )
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'bottom-cta' },
+	                React.createElement(
+	                    'form',
+	                    { className: 'phone-form', onSubmit: this.onSubmit },
+	                    React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone', ref: 'field-phone', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*', autoFocus: true }),
+	                    React.createElement(
+	                        'button',
+	                        { className: 'blue-cta' },
+	                        React.createElement('img', { src: 'images/phone.svg' }),
+	                        'CALL THE SENATE'
+	                    )
+	                )
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'copy' },
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    'Just enter your number and click \u201Ccall\u201D.  ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'You\u2019ll be done within 2 minutes'
+	                    ),
+	                    ' and will have made serious progress in defending the Supreme Court from powerful interests.'
+	                )
 	            )
 	        );
 	    },

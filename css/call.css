@@ -42,9 +42,17 @@ table {
 /* Styles */
 
 body {
-    background-color: #f1f1f1;
-    background-image: url(../images/background-noise.jpg);
+    background-color: rgba(245, 245, 245, 1.000);
     margin: 0;
+    font-family: 'Quattrocento', serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+}
+
+h4 {
+    font-family: 'Cinzel', serif;
 }
 
 strong {
@@ -62,7 +70,6 @@ input {
     border-radius: 0;
     border: none;
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
 }
 
 input[type=number]::-webkit-outer-spin-button,
@@ -91,12 +98,9 @@ a:hover {
 }
 
 #app {
-    background-image: url(../images/Trump-WH-header-collage.jpg);
     background-position: left top;
     background-repeat: no-repeat;
-    background-size: contain;
     color: #330904;
-    font-family: 'Open Sans', sans-serif;
     line-height: 1.4;
     min-height: 100vh;
 }
@@ -105,6 +109,19 @@ a:hover {
         background-size: 1031px;
         background-position: -150px top;
     }
+}
+
+p strong {
+    font-weight: 700;
+}
+
+header h4 {
+    font-size: 36px;
+    color: rgba(211, 89, 92, 1.000);
+}
+
+header h1 {
+    font-size: 48px;
 }
 
 #app .hide-temporarily {
@@ -118,22 +135,24 @@ a:hover {
 }
 
 #app .wrapper > header {
-    margin: 0 auto;
-    max-width: 840px;
+    background-image: url(../images/gorsuch-header.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 660px;
+    background-position: center bottom;
 }
 
 #app .title {
     color: #f1f1f1;
     font-size: 44px;
     font-weight: bold;
-    padding: 32px 32px 60px;
+    padding: 100px 32px 60px;
     text-align: center;
     text-shadow: 0px 0px 17px rgba(50,0,50,0.6);
     text-transform: uppercase;
 }
 #app .title span.first-line {
     color: #3a0c07;
-    font-family: "Arvo", serif;
     font-size: 28px;
     text-shadow: 0px 0px 11px rgba(255,255,255,0.6);
 }
@@ -238,16 +257,88 @@ a:hover {
     text-decoration: none;
 }
 
-#app .phone-form-wrapper {
-    background-color: #f1f1f1;
-    border: 1px solid #a9a9a9;
-    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.216);
-    margin: 0 auto 32px;
-    max-width: 700px;
-    padding: 32px;
+.phone-form input {
+    height: 70px;
+    line-height: 70px;
+    font-size: 24px;
+    padding-left: 15px;
+    font-family: 'Quattrocento', serif;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.blue-cta {
+    background-image: linear-gradient(-46deg, #0063E5 0%, #00A3DD 100%);
+    border-radius: 100px;
+    font-family: Quattrocento-Bold;
+    font-size: 24px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 25px;
+}
+
+.privacy {
+    font-size: 14px;
+    opacity: .5;
+    margin-top: 15px;
+}
+
+.blue-cta img {
+    height: 24px;
+    position: relative;
+    top: 4px;
+    margin-right: 15px;
+}
+
+.clamp h4 {
+    opacity: 0.4;
+}
+
+.copy {
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+.copy p {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 50px;
+}
+
+.bottom-cta {
+    width: 100%;
+    padding: 50px 0;
+    margin-bottom: 50px;
     text-align: center;
-    -webkit-transition: box-shadow 0.3s;
-            transition: box-shadow 0.3s;
+    background-color: rgba(228, 228, 228, 1.000);
+}
+
+.copy h2 {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.copy h2 span {
+    color: rgba(0, 137, 227, 1.000);
+}
+
+.top-cta {
+    background-color: rgba(228, 228, 228, 1.000);
+    margin: 0 auto 32px auto;
+    max-width: 700px;
+    position: relative;
+    top: -50px;
+    border-radius: 5px;
+    padding: 40px 60px;
+    text-align: center;
+}
+
+.top-cta p {
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
 #app .phone-form-wrapper h2 {
@@ -442,7 +533,6 @@ a:hover {
 
 #app .thanks {
     background-color: #f1f1f1;
-    background-image: url(../images/background-noise.jpg);
     font-size: 24px;
     padding: 32px;
     text-align: center;
@@ -638,14 +728,6 @@ a:hover {
 
 #app .opt-out-form .numbers .number .name {
     font-weight: 700;
-}
-
-#app .privacy {
-    color: #808080;
-    font-size: 12px;
-    font-style: italic;
-    padding: 0 0 32px;
-    text-align: center;
 }
 
 #app .phone-form-wrapper.block-mnuchin .privacy {

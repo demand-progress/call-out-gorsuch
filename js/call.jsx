@@ -173,9 +173,8 @@ function k() {}
 const Header = () => (
     <header>
         <div className="title">
-            <span className="first-line">Tell the Senate:</span>
-            <br/>
-            Oppose Trump&#039;s takeover <span className="single-word">of</span> the Supreme Court
+            <h4>Tell the Senate</h4>
+            <h1>Oppose Trump&#039;s takeover of the Supreme Court</h1>
         </div>
     </header>
 );
@@ -187,36 +186,47 @@ function numberWithCommas(x) {
 const PhoneForm = React.createClass({
     render: function() {
         return (
-            <div className="phone-form-wrapper">
-                <p>Neil Gorsuch is Donald Trump&#039;s Supreme Court nominee -- and he is even more conservative than Antonin Scalia was.
-                Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.</p>
+            <div className="wrapper">
 
-                <p>Gorsuch has a long history of siding with powerful interests over everyday Americans.  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice we simply cannot afford to let the court shift to the far right. </p>
 
-                <h3>The Senate Must Block and Resist Trump&#039;s Supreme Court</h3>
-                <p>The Senate will be voting on Gorsuch soon -- we need you to call your senators now and tell them to vote no.</p>
-
-                <div className="phone-form">
-                    <form onSubmit={ this.onSubmit }>
+                <div className="top-cta">
+                    <p>The Senate will be voting on Gorsuch soon -- we need you to <strong>call your senators now and tell them to vote no</strong>.</p>
+                    <form onSubmit={ this.onSubmit } className="phone-form">
                         <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
-                        <button>
-                            CALL THE SENATE
+                        <button className="blue-cta">
                             <img src="images/phone.svg" />
+                            Call the senate
                         </button>
                     </form>
 
                     <div className="privacy">
-                        This tool uses <a href="https://www.twilio.com/legal/privacy" target="_blank">Twilio</a>’s APIs.
-                        <br />
                         Or dial <a href="tel:+12023350610">(202) 335-0610</a> to connect.
+                        <br />
+                        This tool uses <a href="https://www.twilio.com/legal/privacy" target="_blank">Twilio</a>’s APIs.
                     </div>
                 </div>
 
-                <div className="paragraph">
-                    Just enter your number and click “call”
-                    <br/>
-                    <br/>
-                    We’ll connect you with your senators and key party leaders, and give you a script of what you can say.
+                <div className="copy">
+                    <h2>YOU CAN SAVE THE SUPREME COURT</h2>
+
+                    <p>Neil Gorsuch is Donald Trump&#039;s Supreme Court nominee -- <strong>and he is even more conservative than Antonin Scalia was.</strong>
+                    Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.</p>
+
+                    <p><strong>Gorsuch has a long history of siding with powerful interests over everyday Americans.</strong>  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice <strong>we simply cannot afford to let the court shift to the far right.</strong> </p>
+                    <h2>DON’T WORRY: CALLING IS <span>EASY</span></h2>
+                    <p>The Senate <strong>must block and resist</strong> Trump&#039;s Supreme Court: We’ll connect you with your senators and key party leaders, and <strong>give you a script of what you can say</strong>.</p>
+                </div>
+                <div className="bottom-cta">
+                    <form className="phone-form" onSubmit={ this.onSubmit }>
+                        <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
+                        <button className="blue-cta">
+                            <img src="images/phone.svg" />
+                            CALL THE SENATE
+                        </button>
+                    </form>
+                </div>
+                <div className="copy">
+                    <p>Just enter your number and click “call”.  <strong>You’ll be done within 2 minutes</strong> and will have made serious progress in defending the Supreme Court from powerful interests.</p>
                 </div>
             </div>
         );

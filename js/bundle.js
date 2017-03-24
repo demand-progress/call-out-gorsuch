@@ -242,8 +242,8 @@
 	                    'Or dial ',
 	                    React.createElement(
 	                        'a',
-	                        { href: 'tel:+12023350610' },
-	                        '(202) 335-0610'
+	                        { href: 'tel:+2023350864' },
+	                        '(202) 335-0864'
 	                    ),
 	                    ' to connect.',
 	                    React.createElement('br', null),
@@ -273,7 +273,7 @@
 	                        null,
 	                        'and he is even more conservative than Antonin Scalia was.'
 	                    ),
-	                    'Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.'
+	                    '\xA0 Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.'
 	                ),
 	                React.createElement(
 	                    'p',
@@ -283,11 +283,11 @@
 	                        null,
 	                        'Gorsuch has a long history of siding with powerful interests over everyday Americans.'
 	                    ),
-	                    '  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice ',
+	                    '  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice, ',
 	                    React.createElement(
 	                        'strong',
 	                        null,
-	                        'we simply cannot afford to let the court shift to the far right.'
+	                        'we simply cannot afford to let the Court shift to the far right.'
 	                    ),
 	                    ' '
 	                ),

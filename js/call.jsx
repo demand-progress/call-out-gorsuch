@@ -158,7 +158,7 @@ const PhoneForm = React.createClass({
                     </form>
 
                     <div className="privacy">
-                        Or dial <a href="tel:+12023350610">(202) 335-0610</a> to connect.
+                        Or dial <a href="tel:+2023350864">(202) 335-0864</a> to connect.
                         <br />
                         This tool uses <a href="https://www.twilio.com/legal/privacy" target="_blank">Twilio</a>’s APIs.
                     </div>
@@ -167,10 +167,10 @@ const PhoneForm = React.createClass({
                 <div className="copy">
                     <h2>YOU CAN SAVE THE SUPREME COURT</h2>
 
-                    <p>Neil Gorsuch is Donald Trump&#039;s Supreme Court nominee -- <strong>and he is even more conservative than Antonin Scalia was.</strong>
+                    <p>Neil Gorsuch is Donald Trump&#039;s Supreme Court nominee -- <strong>and he is even more conservative than Antonin Scalia was.</strong>&nbsp;
                     Republicans are trying to ram through his confirmation -- and several Democrats are considering caving and joining them.</p>
 
-                    <p><strong>Gorsuch has a long history of siding with powerful interests over everyday Americans.</strong>  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice <strong>we simply cannot afford to let the court shift to the far right.</strong> </p>
+                    <p><strong>Gorsuch has a long history of siding with powerful interests over everyday Americans.</strong>  And as Trump launches rhetorical attacks on the judiciary, tries to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice, <strong>we simply cannot afford to let the Court shift to the far right.</strong> </p>
                     <h2>DON’T WORRY: CALLING IS <span>EASY</span></h2>
                     <p>The Senate <strong>must block and resist</strong> Trump&#039;s Supreme Court: We’ll connect you with your senators and key party leaders, and <strong>give you a script of what you can say</strong>.</p>
                 </div>

@@ -149,8 +149,8 @@ const PhoneForm = React.createClass({
 
                 <div className="top-cta">
                     <p>The Senate will be voting on Gorsuch soon -- we need you to <strong>call your senators now and tell them to vote no</strong>.</p>
-                    <form onSubmit={ this.onSubmit } className="phone-form">
-                        <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
+                    <form onSubmit={ (e) => { this.onSubmit(e, 1); }} className="phone-form">
+                        <input placeholder="Your Phone Number" id="field-phone-1" ref="field-phone-1" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
                         <button className="blue-cta">
                             <img src="images/phone.svg" />
                             Call the Senate
@@ -175,8 +175,8 @@ const PhoneForm = React.createClass({
                     <p>The Senate <strong>must block and resist</strong> Trump&#039;s Supreme Court: We’ll connect you with your senators and key party leaders, and <strong>give you a script of what you can say</strong>.</p>
                 </div>
                 <div className="bottom-cta">
-                    <form className="phone-form" onSubmit={ this.onSubmit }>
-                        <input placeholder="Your Phone Number" id="field-phone" ref="field-phone" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" />
+                    <form className="phone-form" onSubmit={ (e) => { this.onSubmit(e, 2); }}>
+                        <input placeholder="Your Phone Number" id="field-phone-2" ref="field-phone-2" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" />
                         <button className="blue-cta">
                             <img src="images/phone.svg" />
                             Call the Senate
@@ -190,10 +190,10 @@ const PhoneForm = React.createClass({
         );
     },
 
-    onSubmit: function(e) {
+    onSubmit: function(e, fieldNum) {
         e.preventDefault();
 
-        const phoneField = this.refs['field-phone'];
+        const phoneField = this.refs['field-phone-' + fieldNum];
         const number = phoneField.value.replace(/[^\d]/g, '');
 
         if (number.length !== 10) {
@@ -216,6 +216,96 @@ const PhoneForm = React.createClass({
         request.send();
 
         this.props.changeForm('script');
+    },
+});
+
+const PhoneScript = React.createClass({
+    onClickSendFeedback: function(e) {
+        e.preventDefault();
+
+        const data = {
+            campaign: config.callCampaign,
+            subject: 'Feedback from ' + (config.prettyCampaignName || config.callCampaign),
+            text: '',
+        };
+
+        const fields = [
+            document.querySelector('#who'),
+            document.querySelector('#how'),
+        ];
+
+        fields.forEach(field => {
+            data.text += `${field.name}:\n${field.value}\n\n`;
+        });
+
+        let url = urls.feedback;
+
+        for (let key in data) {
+            url += key;
+            url += '=';
+            url += encodeURIComponent(data[key]);
+            url += '&';
+        }
+
+        ajax.get(url);
+
+        this.setState({
+            sent: true,
+        });
+    },
+
+    getInitialState: function() {
+        return {
+            sent: false,
+        };
+    },
+
+    render: function() {
+        return (
+            <div className="phone-script">
+                <em>We’re calling you and will connect you to your senators. <br/> If you stay on the line we will keep connecting you to other key senators.</em>
+                <div className="spacer" />
+                <em>After each conversation, you can <strong>press *</strong> and we’ll connect you to the next office.</em>
+                <div className="spacer" />
+                <em>Here’s what you can say: </em>
+                <div className="spacer" />
+
+                <div className="suggestion">
+                    <p>&ldquo;<strong>Neil Gorsuch has consistently stood with corporations and other powerful interests against everyday Americans.</strong></p>
+                    <div className="spacer" />
+                    <p>Trump has launched rhetorical attacks on judges, is trying to accumulate ever more power for himself and big business interests,
+                    and seeks to undermine civil rights and social justice. <strong>Neil Gorsuch will make it even easier for Trump to implement this agenda.</strong></p>
+                    <div className="spacer" />
+                    <p>Please vote against confirming Gorsuch.&quot;</p>
+                </div>
+                <div className="spacer" />
+
+                <div className="calling-wrapper">
+                    <h3>After your call(s), use the form to let us know how it went!</h3>
+                    <form action="#" method="get" className={this.state.sent ? 'sent' : false}>
+                        <div className="wrapper">
+                            <h4>Who did you speak with?</h4>
+                            <input required="required" type="text" name="Who did you speak with?" id="who" />
+                            <h4>How did it go?</h4>
+                            <input required="required" type="text" name="How did it go?" id="how" />
+                            <br />
+                            <div id="thanks">Thank you!</div>
+                            <button onClick={this.onClickSendFeedback} type="submit" name="submit">Send Feedback</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        );
+    },
+});
+
+const Thanks = React.createClass({
+    render: function() {
+        return (
+            <div className="thanks">
+                Thanks for making your voice heard!
+            </div>
+        );
     },
 });
 
@@ -365,95 +455,6 @@ const DemoPhoneScript = React.createClass({
                         </div>
                     </form>
                 </div>
-            </div>
-        );
-    },
-});
-
-const PhoneScript = React.createClass({
-    onClickSendFeedback: function(e) {
-        e.preventDefault();
-
-        const data = {
-            campaign: config.callCampaign,
-            subject: 'Feedback from ' + (config.prettyCampaignName || config.callCampaign),
-            text: '',
-        };
-
-        const fields = [
-            document.querySelector('#who'),
-            document.querySelector('#how'),
-        ];
-
-        fields.forEach(field => {
-            data.text += `${field.name}:\n${field.value}\n\n`;
-        });
-
-        let url = urls.feedback;
-
-        for (let key in data) {
-            url += key;
-            url += '=';
-            url += encodeURIComponent(data[key]);
-            url += '&';
-        }
-
-        ajax.get(url);
-
-        this.setState({
-            sent: true,
-        });
-    },
-
-    getInitialState: function() {
-        return {
-            sent: false,
-        };
-    },
-
-    render: function() {
-        return (
-            <div className="phone-script">
-                <em>We’re calling you and will connect you to your senators. <br/> If you stay on the line we will keep connecting you to other key senators.</em>
-                <div className="spacer" />
-                <em>After each conversation, you can <strong>press *</strong> and we’ll connect you to the next office.</em>
-
-                <em>Here’s what you can say:</em>
-                <div className="spacer" />
-
-                <div className="suggestion">
-                    <p>&ldquo;<strong>Neil Gorsuch has consistently stood with corporations and other powerful interests against everyday Americans.</strong></p>
-                    <p>Trump has launched rhetorical attacks on judges, is trying to accumulate ever more power for himself and big business interests,
-                    and seeks to undermine civil rights and social justice. <strong>Neil Gorsuch will make it even easier for Trump to implement this agenda.</strong></p>
-                    <p>Please vote against confirming Gorsuch.&quot;</p>
-                </div>
-                <div className="spacer" />
-
-                <div className="calling-wrapper">
-                    <h3>After your call(s), use the form to let us know how it went!</h3>
-                    <form action="#" method="get" className={this.state.sent ? 'sent' : false}>
-                        <div className="wrapper">
-                            <h4>Who did you speak with?</h4>
-                            <input required="required" type="text" name="Who did you speak with?" id="who" />
-                            <h4>How did it go?</h4>
-                            <input required="required" type="text" name="How did it go?" id="how" />
-                            <br />
-                            <div id="thanks">Thank you!</div>
-                            <button onClick={this.onClickSendFeedback} type="submit" name="submit">Send Feedback</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        );
-    },
-});
-
-
-const Thanks = React.createClass({
-    render: function() {
-        return (
-            <div className="thanks">
-                Thanks for making your voice heard!
             </div>
         );
     },

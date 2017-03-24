@@ -204,6 +204,8 @@
 	    displayName: 'PhoneForm',
 
 	    render: function render() {
+	        var _this = this;
+
 	        return React.createElement(
 	            'div',
 	            { className: 'wrapper' },
@@ -223,8 +225,10 @@
 	                ),
 	                React.createElement(
 	                    'form',
-	                    { onSubmit: this.onSubmit, className: 'phone-form' },
-	                    React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone', ref: 'field-phone', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*', autoFocus: true }),
+	                    { onSubmit: function onSubmit(e) {
+	                            _this.onSubmit(e, 1);
+	                        }, className: 'phone-form' },
+	                    React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone-1', ref: 'field-phone-1', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*', autoFocus: true }),
 	                    React.createElement(
 	                        'button',
 	                        { className: 'blue-cta' },
@@ -320,8 +324,10 @@
 	                { className: 'bottom-cta' },
 	                React.createElement(
 	                    'form',
-	                    { className: 'phone-form', onSubmit: this.onSubmit },
-	                    React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone', ref: 'field-phone', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*' }),
+	                    { className: 'phone-form', onSubmit: function onSubmit(e) {
+	                            _this.onSubmit(e, 2);
+	                        } },
+	                    React.createElement('input', { placeholder: 'Your Phone Number', id: 'field-phone-2', ref: 'field-phone-2', className: 'phone', name: 'phone', autoComplete: 'on', pattern: '[\\d\\(\\)\\-\\+ ]*' }),
 	                    React.createElement(
 	                        'button',
 	                        { className: 'blue-cta' },
@@ -348,10 +354,10 @@
 	        );
 	    },
 
-	    onSubmit: function onSubmit(e) {
+	    onSubmit: function onSubmit(e, fieldNum) {
 	        e.preventDefault();
 
-	        var phoneField = this.refs['field-phone'];
+	        var phoneField = this.refs['field-phone-' + fieldNum];
 	        var number = phoneField.value.replace(/[^\d]/g, '');
 
 	        if (number.length !== 10) {
@@ -374,6 +380,164 @@
 	        request.send();
 
 	        this.props.changeForm('script');
+	    }
+	});
+
+	var PhoneScript = React.createClass({
+	    displayName: 'PhoneScript',
+
+	    onClickSendFeedback: function onClickSendFeedback(e) {
+	        e.preventDefault();
+
+	        var data = {
+	            campaign: config.callCampaign,
+	            subject: 'Feedback from ' + (config.prettyCampaignName || config.callCampaign),
+	            text: ''
+	        };
+
+	        var fields = [document.querySelector('#who'), document.querySelector('#how')];
+
+	        fields.forEach(function (field) {
+	            data.text += field.name + ':\n' + field.value + '\n\n';
+	        });
+
+	        var url = urls.feedback;
+
+	        for (var key in data) {
+	            url += key;
+	            url += '=';
+	            url += encodeURIComponent(data[key]);
+	            url += '&';
+	        }
+
+	        ajax.get(url);
+
+	        this.setState({
+	            sent: true
+	        });
+	    },
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            sent: false
+	        };
+	    },
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'phone-script' },
+	            React.createElement(
+	                'em',
+	                null,
+	                'We\u2019re calling you and will connect you to your senators. ',
+	                React.createElement('br', null),
+	                ' If you stay on the line we will keep connecting you to other key senators.'
+	            ),
+	            React.createElement('div', { className: 'spacer' }),
+	            React.createElement(
+	                'em',
+	                null,
+	                'After each conversation, you can ',
+	                React.createElement(
+	                    'strong',
+	                    null,
+	                    'press *'
+	                ),
+	                ' and we\u2019ll connect you to the next office.'
+	            ),
+	            React.createElement('div', { className: 'spacer' }),
+	            React.createElement(
+	                'em',
+	                null,
+	                'Here\u2019s what you can say: '
+	            ),
+	            React.createElement('div', { className: 'spacer' }),
+	            React.createElement(
+	                'div',
+	                { className: 'suggestion' },
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    '\u201C',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'Neil Gorsuch has consistently stood with corporations and other powerful interests against everyday Americans.'
+	                    )
+	                ),
+	                React.createElement('div', { className: 'spacer' }),
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    'Trump has launched rhetorical attacks on judges, is trying to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice. ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'Neil Gorsuch will make it even easier for Trump to implement this agenda.'
+	                    )
+	                ),
+	                React.createElement('div', { className: 'spacer' }),
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    'Please vote against confirming Gorsuch."'
+	                )
+	            ),
+	            React.createElement('div', { className: 'spacer' }),
+	            React.createElement(
+	                'div',
+	                { className: 'calling-wrapper' },
+	                React.createElement(
+	                    'h3',
+	                    null,
+	                    'After your call(s), use the form to let us know how it went!'
+	                ),
+	                React.createElement(
+	                    'form',
+	                    { action: '#', method: 'get', className: this.state.sent ? 'sent' : false },
+	                    React.createElement(
+	                        'div',
+	                        { className: 'wrapper' },
+	                        React.createElement(
+	                            'h4',
+	                            null,
+	                            'Who did you speak with?'
+	                        ),
+	                        React.createElement('input', { required: 'required', type: 'text', name: 'Who did you speak with?', id: 'who' }),
+	                        React.createElement(
+	                            'h4',
+	                            null,
+	                            'How did it go?'
+	                        ),
+	                        React.createElement('input', { required: 'required', type: 'text', name: 'How did it go?', id: 'how' }),
+	                        React.createElement('br', null),
+	                        React.createElement(
+	                            'div',
+	                            { id: 'thanks' },
+	                            'Thank you!'
+	                        ),
+	                        React.createElement(
+	                            'button',
+	                            { onClick: this.onClickSendFeedback, type: 'submit', name: 'submit' },
+	                            'Send Feedback'
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+
+	var Thanks = React.createClass({
+	    displayName: 'Thanks',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'thanks' },
+	            'Thanks for making your voice heard!'
+	        );
 	    }
 	});
 
@@ -623,161 +787,6 @@
 	                    )
 	                )
 	            )
-	        );
-	    }
-	});
-
-	var PhoneScript = React.createClass({
-	    displayName: 'PhoneScript',
-
-	    onClickSendFeedback: function onClickSendFeedback(e) {
-	        e.preventDefault();
-
-	        var data = {
-	            campaign: config.callCampaign,
-	            subject: 'Feedback from ' + (config.prettyCampaignName || config.callCampaign),
-	            text: ''
-	        };
-
-	        var fields = [document.querySelector('#who'), document.querySelector('#how')];
-
-	        fields.forEach(function (field) {
-	            data.text += field.name + ':\n' + field.value + '\n\n';
-	        });
-
-	        var url = urls.feedback;
-
-	        for (var key in data) {
-	            url += key;
-	            url += '=';
-	            url += encodeURIComponent(data[key]);
-	            url += '&';
-	        }
-
-	        ajax.get(url);
-
-	        this.setState({
-	            sent: true
-	        });
-	    },
-
-	    getInitialState: function getInitialState() {
-	        return {
-	            sent: false
-	        };
-	    },
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'phone-script' },
-	            React.createElement(
-	                'em',
-	                null,
-	                'We\u2019re calling you and will connect you to your senators. ',
-	                React.createElement('br', null),
-	                ' If you stay on the line we will keep connecting you to other key senators.'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'em',
-	                null,
-	                'After each conversation, you can ',
-	                React.createElement(
-	                    'strong',
-	                    null,
-	                    'press *'
-	                ),
-	                ' and we\u2019ll connect you to the next office.'
-	            ),
-	            React.createElement(
-	                'em',
-	                null,
-	                'Here\u2019s what you can say:'
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'div',
-	                { className: 'suggestion' },
-	                React.createElement(
-	                    'p',
-	                    null,
-	                    '\u201C',
-	                    React.createElement(
-	                        'strong',
-	                        null,
-	                        'Neil Gorsuch has consistently stood with corporations and other powerful interests against everyday Americans.'
-	                    )
-	                ),
-	                React.createElement(
-	                    'p',
-	                    null,
-	                    'Trump has launched rhetorical attacks on judges, is trying to accumulate ever more power for himself and big business interests, and seeks to undermine civil rights and social justice. ',
-	                    React.createElement(
-	                        'strong',
-	                        null,
-	                        'Neil Gorsuch will make it even easier for Trump to implement this agenda.'
-	                    )
-	                ),
-	                React.createElement(
-	                    'p',
-	                    null,
-	                    'Please vote against confirming Gorsuch."'
-	                )
-	            ),
-	            React.createElement('div', { className: 'spacer' }),
-	            React.createElement(
-	                'div',
-	                { className: 'calling-wrapper' },
-	                React.createElement(
-	                    'h3',
-	                    null,
-	                    'After your call(s), use the form to let us know how it went!'
-	                ),
-	                React.createElement(
-	                    'form',
-	                    { action: '#', method: 'get', className: this.state.sent ? 'sent' : false },
-	                    React.createElement(
-	                        'div',
-	                        { className: 'wrapper' },
-	                        React.createElement(
-	                            'h4',
-	                            null,
-	                            'Who did you speak with?'
-	                        ),
-	                        React.createElement('input', { required: 'required', type: 'text', name: 'Who did you speak with?', id: 'who' }),
-	                        React.createElement(
-	                            'h4',
-	                            null,
-	                            'How did it go?'
-	                        ),
-	                        React.createElement('input', { required: 'required', type: 'text', name: 'How did it go?', id: 'how' }),
-	                        React.createElement('br', null),
-	                        React.createElement(
-	                            'div',
-	                            { id: 'thanks' },
-	                            'Thank you!'
-	                        ),
-	                        React.createElement(
-	                            'button',
-	                            { onClick: this.onClickSendFeedback, type: 'submit', name: 'submit' },
-	                            'Send Feedback'
-	                        )
-	                    )
-	                )
-	            )
-	        );
-	    }
-	});
-
-	var Thanks = React.createClass({
-	    displayName: 'Thanks',
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'thanks' },
-	            'Thanks for making your voice heard!'
 	        );
 	    }
 	});

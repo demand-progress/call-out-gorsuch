@@ -35,8 +35,6 @@ try {
 
 // URLs
 const urls = {};
-urls.actionkit = 'https://act.demandprogress.org/act/';
-urls.count = 'https://act.demandprogress.org/progress/' + config.akPage + '?callback=onFetchSignatureCounts';
 urls.facebook = 'https://www.facebook.com/sharer.php?u=';
 urls.feedback = 'https://dp-feedback-tool.herokuapp.com/api/v1/feedback?';
 urls.twitter = 'https://twitter.com/intent/tweet?text=';
@@ -77,46 +75,6 @@ const ajax = {
         xhr.send(formData);
     },
 };
-
-function fetchSignatureCounts() {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = urls.count;
-    document.body.appendChild(script);
-}
-
-function onFetchSignatureCounts(data) {
-    state.count = data.total.actions;
-    render();
-}
-
-window.onFetchSignatureCounts = onFetchSignatureCounts;
-
-function sendFormToActionKit(fields) {
-    // iFrame
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.setAttribute('name', 'actionkit-iframe');
-    document.body.appendChild(iframe);
-
-    // Form
-    const form = document.createElement('form');
-    form.style.display = 'none';
-    form.setAttribute('action', urls.actionkit);
-    form.setAttribute('method', 'post');
-    form.setAttribute('target', 'actionkit-iframe');
-    document.body.appendChild(form);
-
-    Object.keys(fields).forEach(function(key) {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = fields[key];
-        form.appendChild(input);
-    });
-
-    form.submit();
-}
 
 const events = {
     list: {},
@@ -689,7 +647,6 @@ function render() {
 }
 
 render();
-fetchSignatureCounts();
 
 // Google Analytics
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

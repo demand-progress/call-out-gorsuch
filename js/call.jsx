@@ -148,7 +148,10 @@ const PhoneForm = React.createClass({
 
 
                 <div className="top-cta">
-                    <p>The Senate will be voting on Gorsuch soon -- we need you to <strong>call your senators now and tell them to vote no</strong>.</p>
+                    { state.query.petition ?
+                        <p>Thanks for signing the petition.  The most impactful thing you can do now is call your senators -- <strong>please enter your number below and we&#039;ll connect you to them.</strong></p> :
+                        <p>The Senate will be voting on Gorsuch soon -- we need you to <strong>call your senators now and tell them to vote no</strong>.</p> }
+
                     <form onSubmit={ (e) => { this.onSubmit(e, 1); }} className="phone-form">
                         <input placeholder="Your Phone Number" id="field-phone-1" ref="field-phone-1" className="phone" name="phone" autoComplete="on" pattern="[\d\(\)\-\+ ]*" autoFocus />
                         <button className="blue-cta">

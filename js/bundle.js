@@ -212,7 +212,16 @@
 	            React.createElement(
 	                'div',
 	                { className: 'top-cta' },
-	                React.createElement(
+	                state.query.petition ? React.createElement(
+	                    'p',
+	                    null,
+	                    'Thanks for signing the petition.  The most impactful thing you can do now is call your senators -- ',
+	                    React.createElement(
+	                        'strong',
+	                        null,
+	                        'please enter your number below and we\'ll connect you to them.'
+	                    )
+	                ) : React.createElement(
 	                    'p',
 	                    null,
 	                    'The Senate will be voting on Gorsuch soon -- we need you to ',
